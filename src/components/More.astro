@@ -1,0 +1,25 @@
+---
+import { area, next } from '../lib/areas';
+
+interface Props { current: string }
+const { current } = Astro.props;
+const picks = (next[current] ?? []).map(area);
+---
+<nav aria-label="Verder kijken" class="more border-t border-line bg-ink-2">
+  <div class="wrap py-12 md:py-16">
+    <p class="font-display text-3xl text-muted md:text-4xl">Verder kijken</p>
+    <ul class="mt-6 grid border-t border-line md:grid-cols-3">
+      {picks.map((a, i) => (
+        <li class:list={['border-b border-line md:border-b-0', i > 0 && 'md:border-l']}>
+          <a href={a.href} class="more-link group flex min-h-[7rem] flex-col justify-between gap-3 py-5 md:px-7 md:first:pl-0">
+            <span class="font-display text-4xl leading-none md:text-5xl">{a.title}</span>
+            <span class="flex items-center justify-between gap-4 text-muted">
+              <span>{a.blurb}</span>
+              <svg class="more-arrow shrink-0 text-gold" viewBox="0 0 40 12" width="40" height="12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h38M33 1l5 5-5 5" /></svg>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>

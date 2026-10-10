@@ -1,0 +1,67 @@
+---
+import { reserveHref, orderHref } from '../lib/data';
+import { areas } from '../lib/areas';
+
+interface Props { solid?: boolean }
+const { solid = true } = Astro.props;
+const path = Astro.url.pathname;
+const isHome = path === '/';
+const here = (href: string) => path === href || path === href.replace(/\/$/, '');
+const links = areas.filter((a) => a.id !== 'bestellen');
+---
+<header
+  data-header
+  data-always-solid={solid ? '' : undefined}
+  data-solid={solid ? '' : undefined}
+  class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-[background-color,border-color] duration-300 data-[solid]:border-line data-[solid]:bg-ink/95 data-[solid]:backdrop-blur"
+  style="view-transition-name: site-header"
+>
+  <div class="wrap flex h-16 items-center justify-between gap-4 md:h-20">
+    <a href="/" class="shrink-0" aria-label="YuMe Sushi & Grill Deventer, naar de beginpagina" aria-current={isHome ? 'page' : undefined}>
+      <img src="/images/logo-on-dark.webp" alt="YuMe Sushi & Grill, Deventer" width="705" height="310" class="h-9 w-auto md:h-11" />
+    </a>
+
+    <nav aria-label="Hoofdmenu" class="hidden xl:block">
+      <ul class="flex items-center gap-7">
+        {links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              aria-current={here(l.href) ? 'page' : undefined}
+              class="nav-link py-2 text-[0.98rem] text-paper/85 transition-colors hover:text-gold"
+            >{l.title}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href={reserveHref} class="btn btn-line btn-sm hidden md:inline-flex">Reserveer</a>
+      <a href={orderHref} class="btn btn-solid btn-sm hidden md:inline-flex" aria-current={here('/bestellen/') ? 'page' : undefined}>Bestel online</a>
+      <button
+        type="button"
+        data-nav-toggle
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Open menu"
+        class="grid h-11 w-11 place-items-center border border-line xl:hidden"
+      >
+        <span class="block w-5 space-y-[5px]" aria-hidden="true">
+          <span class="block h-px bg-paper"></span><span class="block h-px bg-paper"></span><span class="block h-px bg-paper"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-nav" hidden aria-label="Menu" class="max-h-[calc(100svh-4rem)] overflow-y-auto border-t border-line bg-ink xl:hidden">
+    <ul class="wrap py-3">
+      {areas.map((l) => (
+        <li class="border-b border-line/60 last:border-0">
+          <a href={l.href} aria-current={here(l.href) ? 'page' : undefined} class="flex items-baseline justify-between gap-4 py-3 font-display text-3xl aria-[current=page]:text-gold">
+            {l.title}<span class="font-sans text-sm text-muted">{l.blurb}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

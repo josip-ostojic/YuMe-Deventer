@@ -1,0 +1,99 @@
+---
+import { c, eur } from '../lib/data';
+import thumbs from '../data/dish-thumbs.json';
+import { aycePhoto } from '../lib/order';
+
+const cats = c.menu.categories as any[];
+const cardThumbs = new Set<number>(thumbs as number[]);
+// sharp studio photo when the dish is also on the takeaway menu, otherwise the crop from the printed card
+const photoOf = (n: number): { src: string; studio: boolean } | null => {
+  const studio = aycePhoto(n);
+  if (studio) return { src: studio, studio: true };
+  return cardThumbs.has(n) ? { src: `/images/dish/${n}.webp`, studio: false } : null;
+};
+const total = cats.reduce((n, cat) => n + cat.groups.reduce((m: number, g: any) => m + g.items.length, 0), 0);
+---
+<section id="menu" class="on-paper section bg-paper pt-32 text-paper-ink md:pt-44">
+  <div class="wrap flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+    <div>
+      <h1 class="h2">Menu</h1>
+      <p class="lead mt-5">
+        Alles op deze kaart zit in het all you can eat-tarief, behalve de gerechten bij 'On the side'. U bestelt op nummer.
+      </p>
+      <p class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-paper">
+        <span><span class="mark mark-v" aria-hidden="true">V</span> Vegetarisch</span>
+        <span><span class="mark mark-h" aria-hidden="true">H</span> Halal-teken op de kaart</span>
+      </p>
+    </div>
+    <img
+      src="/images/sushi-platter.webp"
+      width="300"
+      height="169"
+      alt="Bord met nigiri en maki, met wasabi en eetstokjes"
+      loading="lazy"
+      decoding="async"
+      class="dish-photo w-[260px] max-w-full md:w-[300px]"
+    />
+  </div>
+
+  <!-- Search and filters (shown when JavaScript runs) -->
+  <div class="menu-tools wrap mt-10 flex-wrap items-center gap-3" role="search">
+    <label for="menu-q" class="sr-only">Zoek een gerecht of nummer</label>
+    <input id="menu-q" type="search" class="menu-q" placeholder="Zoek een gerecht of nummer" autocomplete="off" spellcheck="false" />
+    <button type="button" class="chip" data-filter="veg" aria-pressed="false"><span class="mark mark-v" aria-hidden="true">V</span> Vegetarisch</button>
+    <button type="button" class="chip" data-filter="halal" aria-pressed="false"><span class="mark mark-h" aria-hidden="true">H</span> Halal-teken</button>
+    <button type="button" class="chip-clear" data-clear hidden>Wis zoekopdracht</button>
+    <p class="menu-count w-full text-sm text-muted-paper sm:ml-2 sm:w-auto" data-count aria-live="polite" data-total={total}></p>
+  </div>
+
+  <div class="sticky top-16 z-30 mt-6 border-y border-paper-ink/15 bg-paper md:top-20">
+    <div class="wrap">
+      <div role="tablist" aria-label="Menu-onderdelen" class="-mx-5 flex overflow-x-auto px-5 md:mx-0 md:px-0">
+        {cats.map((cat, i) => (
+          <button role="tab" type="button" class="tab" id={`tab-${cat.id}`} aria-controls={`panel-${cat.id}`} aria-selected={i === 0 ? 'true' : 'false'}>{cat.tab}</button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap mt-10">
+    {cats.map((cat) => (
+      <div role="tabpanel" class="tabpanel mb-14 last:mb-0 [.js_&]:mb-0" id={`panel-${cat.id}`} aria-labelledby={`tab-${cat.id}`} tabindex="0">
+        {cat.note && <p class="mb-8 max-w-xl text-muted-paper">{cat.note}</p>}
+        {cat.groups.map((g: any) => (
+          <div class="dish-group mb-12 last:mb-0">
+            <h2 class="mb-4 flex items-baseline gap-3 text-4xl">
+              {g.name}
+              {g.unit && <span class="text-base text-muted-paper" style="font-family:var(--font-sans);font-weight:400">{g.unit}</span>}
+            </h2>
+            <ul class="gap-x-12 md:columns-2">
+              {g.items.map((it: any) => (
+                <li
+                  class:list={['dish', photoOf(it.n) && 'has-photo']}
+                  data-n={it.n}
+                  data-search={`${it.name} ${it.desc ?? ''}`.toLowerCase()}
+                  data-veg={it.veg ? '' : undefined}
+                  data-halal={it.halal ? '' : undefined}
+                >
+                  {photoOf(it.n) && (
+                    <img class:list={['dish-thumb', photoOf(it.n)!.studio && 'is-studio']} src={photoOf(it.n)!.src} width={photoOf(it.n)!.studio ? 200 : 168} height={photoOf(it.n)!.studio ? 160 : 132} alt="" loading="lazy" decoding="async" />
+                  )}
+                  <span class="dish-n">{it.n}</span>
+                  <span>
+                    <span class="dish-name">{it.name}</span>
+                    {it.veg && <span class="mark mark-v" title="Vegetarisch" aria-label="vegetarisch">V</span>}
+                    {it.halal && <span class="mark mark-h" title="Halal-teken op de kaart" aria-label="halal-teken op de kaart">H</span>}
+                    {it.desc && <span class="dish-desc">{it.desc}</span>}
+                  </span>
+                  {typeof it.extra_eur === 'number' && <span class="whitespace-nowrap font-medium text-gold-deep">+ {eur(it.extra_eur)}</span>}
+                  {typeof it.extra_eur === 'string' && <span class="text-sm text-gold-deep">{it.extra_eur}</span>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    ))}
+    <p class="menu-empty py-10 text-lg text-muted-paper" data-empty hidden>Geen gerechten gevonden. Probeer een ander woord of nummer.</p>
+  </div>
+</section>

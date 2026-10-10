@@ -1,0 +1,13 @@
+---
+import { reserveHref, orderHref } from '../lib/data';
+---
+<div
+  data-ctabar
+  class="ctabar fixed inset-x-0 bottom-0 z-40 border-t border-line bg-ink md:hidden"
+  style="padding-bottom: env(safe-area-inset-bottom)"
+>
+  <div class="grid grid-cols-2 gap-2 p-2.5">
+    <a href={reserveHref} class="btn btn-line">Reserveer</a>
+    <a href={orderHref} class="btn btn-solid">Bestel online</a>
+  </div>
+</div>

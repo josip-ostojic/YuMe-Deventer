@@ -1,0 +1,1376 @@
+{
+ "_meta": {
+  "source": "https://foodtown.nl/boreel-cj/ (the current online ordering page), saved in assets-src/foodtown.html on 2026-10-09",
+  "note": "Takeaway/delivery menu. Prices differ from nothing on the all-you-can-eat card: this is a separate à-la-carte menu. Allergen tags are exactly the icons Foodtown shows; they are incomplete (e.g. Ebi Nigiri has none), so they are never used to hide dishes. Foodtown labels vegetarian dishes \"Veganistisch\"; some contain egg or cheese, so the site says \"Vegetarisch\".",
+  "platform_name": "C&J Horeca B.V. | Yume Boreel",
+  "platform_address": "Boreelplein 48, 7411 EH Deventer (the main site says Boreelplein 52: to confirm)",
+  "checkout_url": "https://foodtown.nl/boreel-cj/afrekenen/",
+  "checkout_needs": "e-mailadres en telefoonnummer",
+  "today_on_platform": "2026-10-09"
+ },
+ "pickup_hours": [
+  {
+   "day": "Maandag",
+   "open": null,
+   "close": null,
+   "closed": true
+  },
+  {
+   "day": "Dinsdag",
+   "open": "16:30",
+   "close": "21:45",
+   "closed": false
+  },
+  {
+   "day": "Woensdag",
+   "open": "16:00",
+   "close": "21:45",
+   "closed": false
+  },
+  {
+   "day": "Donderdag",
+   "open": "16:00",
+   "close": "21:45",
+   "closed": false
+  },
+  {
+   "day": "Vrijdag",
+   "open": "16:00",
+   "close": "21:45",
+   "closed": false
+  },
+  {
+   "day": "Zaterdag",
+   "open": "16:00",
+   "close": "21:45",
+   "closed": false
+  },
+  {
+   "day": "Zondag",
+   "open": "16:00",
+   "close": "21:45",
+   "closed": false
+  }
+ ],
+ "minimum_takeaway_eur": 0,
+ "delivery_zones": [
+  {
+   "name": "Gebied 1",
+   "fee_eur": 2.5,
+   "minimum_eur": 15,
+   "postcodes": [
+    "7421-7425",
+    "7431",
+    "7433",
+    "7214",
+    "7384",
+    "7391",
+    "7424",
+    "7423",
+    "7411",
+    "7412",
+    "7413",
+    "7414",
+    "7415",
+    "7416",
+    "7417",
+    "7418",
+    "7419"
+   ]
+  },
+  {
+   "name": "Gebied 2",
+   "fee_eur": 5,
+   "minimum_eur": 20,
+   "postcodes": [
+    "7210-7211",
+    "7202-7203",
+    "7383-7384",
+    "7395-7397",
+    "8196",
+    "8121",
+    "8124",
+    "7201"
+   ]
+  }
+ ],
+ "categories": [
+  {
+   "id": "nigiri",
+   "name": "Nigiri",
+   "items": [
+    {
+     "id": 361,
+     "sku": "0001",
+     "name": "Sake Nigiri",
+     "unit": "",
+     "desc": "Zalm",
+     "note": "",
+     "price_eur": 1.8,
+     "tags": [
+      "fish"
+     ],
+     "photo": "361",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 365,
+     "sku": "0005",
+     "name": "Tamago Nigiri",
+     "unit": "",
+     "desc": "Zoete Omelet",
+     "note": "",
+     "price_eur": 1.75,
+     "tags": [
+      "vegetarian"
+     ],
+     "photo": "365",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 366,
+     "sku": "0006",
+     "name": "Ebi Nigiri",
+     "unit": "",
+     "desc": "Gekookte garnaal",
+     "note": "",
+     "price_eur": 1.75,
+     "tags": [],
+     "photo": "366",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 369,
+     "sku": "0009",
+     "name": "Kani Nigiri",
+     "unit": "",
+     "desc": "Krab",
+     "note": "",
+     "price_eur": 1.8,
+     "tags": [],
+     "photo": "369",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 370,
+     "sku": "0010",
+     "name": "Unagi Nigiri",
+     "unit": "",
+     "desc": "Gegrilde paling",
+     "note": "",
+     "price_eur": 2.35,
+     "tags": [],
+     "photo": "370",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 372,
+     "sku": "0012",
+     "name": "Inari Nigiri",
+     "unit": "",
+     "desc": "Gebakken tofu",
+     "note": "",
+     "price_eur": 1.75,
+     "tags": [
+      "vegetarian"
+     ],
+     "photo": "372",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 374,
+     "sku": "0014",
+     "name": "Sake Cheese Nigiri",
+     "unit": "",
+     "desc": "Geflambeerde kaas",
+     "note": "",
+     "price_eur": 2.3,
+     "tags": [],
+     "photo": "374",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 375,
+     "sku": "0015",
+     "name": "Gegrilde Sake Nigiri",
+     "unit": "",
+     "desc": "Geflambeerde zalm",
+     "note": "",
+     "price_eur": 2.25,
+     "tags": [],
+     "photo": "375",
+     "has_options_on_platform": false
+    }
+   ]
+  },
+  {
+   "id": "maki",
+   "name": "Maki",
+   "items": [
+    {
+     "id": 388,
+     "sku": "0028",
+     "name": "Sake Maki",
+     "unit": "3 stuks",
+     "desc": "Zalm rol",
+     "note": "",
+     "price_eur": 2.4,
+     "tags": [],
+     "photo": "388",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 61784,
+     "sku": "0029",
+     "name": "Tekka Maki",
+     "unit": "3 stuks",
+     "desc": "Tonijn rol",
+     "note": "",
+     "price_eur": 2.9,
+     "tags": [],
+     "photo": "61784",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 390,
+     "sku": "0030",
+     "name": "Kappa Maki",
+     "unit": "3 stuks",
+     "desc": "Komkommer rol",
+     "note": "",
+     "price_eur": 1.8,
+     "tags": [
+      "vegetarian"
+     ],
+     "photo": "390",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 391,
+     "sku": "0031",
+     "name": "Kani Maki",
+     "unit": "3 stuks",
+     "desc": "Krab rol",
+     "note": "",
+     "price_eur": 1.95,
+     "tags": [],
+     "photo": "391",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 392,
+     "sku": "0032",
+     "name": "Avocado Maki",
+     "unit": "3 stuks",
+     "desc": "Avocado rol",
+     "note": "",
+     "price_eur": 1.95,
+     "tags": [
+      "vegetarian"
+     ],
+     "photo": "392",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 393,
+     "sku": "0033",
+     "name": "California Maki",
+     "unit": "4 stuks",
+     "desc": "Avocado-krab rol",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [],
+     "photo": "393",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 394,
+     "sku": "0034",
+     "name": "Wasabi Sake Maki",
+     "unit": "4 stuks",
+     "desc": "Avocado-zalm rol",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [],
+     "photo": "394",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 395,
+     "sku": "0035",
+     "name": "Spicy Sake Maki",
+     "unit": "4 stuks",
+     "desc": "Pittige zalm rol",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [],
+     "photo": "395",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 61785,
+     "sku": "0036",
+     "name": "Spicy Tuna Maki",
+     "unit": "4 stuks",
+     "desc": "Pittige tonijn rol",
+     "note": "",
+     "price_eur": 5.25,
+     "tags": [],
+     "photo": "61785",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 397,
+     "sku": "0037",
+     "name": "Crispy Roll",
+     "unit": "4 stuks",
+     "desc": "Vegetarisch",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [
+      "vegetarian"
+     ],
+     "photo": "397",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 398,
+     "sku": "0038",
+     "name": "Cheese Roll",
+     "unit": "4 stuks",
+     "desc": "Vegetarisch",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [
+      "vegetarian"
+     ],
+     "photo": "398",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 399,
+     "sku": "0039",
+     "name": "Banaan Maki",
+     "unit": "4 stuks",
+     "desc": "Vegetarisch",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [
+      "vegetarian"
+     ],
+     "photo": "399",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 400,
+     "sku": "0040",
+     "name": "Unagi Maki",
+     "unit": "4 stuks",
+     "desc": "Paling Rol",
+     "note": "",
+     "price_eur": 5.75,
+     "tags": [],
+     "photo": "400",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 401,
+     "sku": "0041",
+     "name": "Ebi Maki",
+     "unit": "4 stuks",
+     "desc": "Garnaal rol",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [],
+     "photo": "401",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 403,
+     "sku": "0043",
+     "name": "Tori Maki",
+     "unit": "4 stuks",
+     "desc": "Kip rol",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [],
+     "photo": "403",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 405,
+     "sku": "0045",
+     "name": "Spicy Tori Maki",
+     "unit": "4 stuks",
+     "desc": "Pittige kip",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [],
+     "photo": "405",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 11179,
+     "sku": "0046",
+     "name": "Creamcheese Sake Maki",
+     "unit": "3 stuks",
+     "desc": "Roomkaas-zalm rol",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [],
+     "photo": "11179",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 407,
+     "sku": "0047",
+     "name": "Crispy Ebi Maki",
+     "unit": "4 stuks",
+     "desc": "Gefrituurde garnaal rol",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [],
+     "photo": "407",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 408,
+     "sku": "0048",
+     "name": "Ebi Avocado Maki",
+     "unit": "4 stuks",
+     "desc": "Garnaal-avocado rol",
+     "note": "",
+     "price_eur": 5.5,
+     "tags": [],
+     "photo": "408",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 409,
+     "sku": "0049",
+     "name": "Mango Sake Maki",
+     "unit": "4 stuks",
+     "desc": "Mango-zalm rol",
+     "note": "",
+     "price_eur": 5.1,
+     "tags": [],
+     "photo": "409",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 62220,
+     "sku": "0051a",
+     "name": "Carpaccio Maki",
+     "unit": "4 stuks",
+     "desc": "Carpaccio rol met rucola en truffelsaus",
+     "note": "",
+     "price_eur": 5.95,
+     "tags": [],
+     "photo": null,
+     "has_options_on_platform": false
+    },
+    {
+     "id": 62221,
+     "sku": "0051b",
+     "name": "Beef Maki",
+     "unit": "4 stuks",
+     "desc": "Spicy beef rol",
+     "note": "",
+     "price_eur": 5.95,
+     "tags": [],
+     "photo": null,
+     "has_options_on_platform": false
+    }
+   ]
+  },
+  {
+   "id": "temaki",
+   "name": "Temaki",
+   "items": [
+    {
+     "id": 382,
+     "sku": "0022",
+     "name": "California Temaki",
+     "unit": "",
+     "desc": "Krab handrol",
+     "note": "",
+     "price_eur": 3.25,
+     "tags": [],
+     "photo": "382",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 383,
+     "sku": "0023",
+     "name": "Wakame Temaki",
+     "unit": "",
+     "desc": "Zeewier handrol",
+     "note": "",
+     "price_eur": 3.5,
+     "tags": [],
+     "photo": "383",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 384,
+     "sku": "0024",
+     "name": "Sake Temaki",
+     "unit": "",
+     "desc": "Zalm handrol",
+     "note": "",
+     "price_eur": 3.25,
+     "tags": [],
+     "photo": "384",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 61783,
+     "sku": "0025",
+     "name": "Maguro Temaki",
+     "unit": "",
+     "desc": "Tonijn handrol",
+     "note": "",
+     "price_eur": 3.5,
+     "tags": [],
+     "photo": "61783",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 386,
+     "sku": "0026",
+     "name": "Spicy Sake Temaki",
+     "unit": "",
+     "desc": "Zalm handrol",
+     "note": "",
+     "price_eur": 3.5,
+     "tags": [],
+     "photo": "386",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 387,
+     "sku": "0027",
+     "name": "Tori Temaki",
+     "unit": "",
+     "desc": "Kip handrol",
+     "note": "",
+     "price_eur": 3.5,
+     "tags": [],
+     "photo": "387",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 60518,
+     "sku": "0027a",
+     "name": "Ebi Temaki",
+     "unit": "",
+     "desc": "Garnaal handrol",
+     "note": "",
+     "price_eur": 3.5,
+     "tags": [],
+     "photo": null,
+     "has_options_on_platform": false
+    }
+   ]
+  },
+  {
+   "id": "grilled-fried",
+   "name": "Grilled & fried",
+   "items": [
+    {
+     "id": 58470,
+     "sku": "0052",
+     "name": "Sesamballetjes",
+     "unit": "4 stuks",
+     "desc": "4 sesamballetjes",
+     "note": "",
+     "price_eur": 3.95,
+     "tags": [],
+     "photo": "58470",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 413,
+     "sku": "0053",
+     "name": "Yaki Tori",
+     "unit": "",
+     "desc": "Kipspies 3x",
+     "note": "",
+     "price_eur": 6.95,
+     "tags": [],
+     "photo": "413",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 417,
+     "sku": "0057",
+     "name": "Ika Fried",
+     "unit": "",
+     "desc": "Inktvisringen",
+     "note": "",
+     "price_eur": 5.25,
+     "tags": [],
+     "photo": "417",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 419,
+     "sku": "0059",
+     "name": "Ebi Fry",
+     "unit": "",
+     "desc": "Gefrituurde garnalen 3x",
+     "note": "",
+     "price_eur": 6.5,
+     "tags": [],
+     "photo": "419",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 420,
+     "sku": "0060",
+     "name": "Tori Karaage",
+     "unit": "",
+     "desc": "Gefrituurde kipfilet",
+     "note": "",
+     "price_eur": 5.95,
+     "tags": [],
+     "photo": "420",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 60530,
+     "sku": "0061",
+     "name": "Gebakken Garnalen",
+     "unit": "",
+     "desc": "3x",
+     "note": "",
+     "price_eur": 5.95,
+     "tags": [],
+     "photo": "60530",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 422,
+     "sku": "0062",
+     "name": "Mini Loempia",
+     "unit": "",
+     "desc": "8x",
+     "note": "",
+     "price_eur": 3.95,
+     "tags": [],
+     "photo": "422",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 423,
+     "sku": "0063",
+     "name": "Dragon Cake",
+     "unit": "",
+     "desc": "Aardappel 3x",
+     "note": "",
+     "price_eur": 3.95,
+     "tags": [],
+     "photo": "423",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 61786,
+     "sku": "0064",
+     "name": "Tori Teriyaki",
+     "unit": "",
+     "desc": "Gebakken kip",
+     "note": "",
+     "price_eur": 6,
+     "tags": [],
+     "photo": "61786",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 61787,
+     "sku": "0065",
+     "name": "Tori Curry",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 6,
+     "tags": [],
+     "photo": "61787",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 63506,
+     "sku": "0066",
+     "name": "Chicken Wings",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 5.25,
+     "tags": [],
+     "photo": "63506",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 427,
+     "sku": "0067",
+     "name": "Krieltjes",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 5.95,
+     "tags": [],
+     "photo": "427",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 428,
+     "sku": "0068",
+     "name": "Kerry Garnalen",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 9,
+     "tags": [],
+     "photo": "428",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 429,
+     "sku": "0069",
+     "name": "Black Pepper Beef",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 8.25,
+     "tags": [],
+     "photo": "429",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 60873,
+     "sku": "0070",
+     "name": "Sake Teriyaki",
+     "unit": "",
+     "desc": "Zalmfilet",
+     "note": "",
+     "price_eur": 8.95,
+     "tags": [],
+     "photo": "60873",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 61788,
+     "sku": "0071",
+     "name": "Spicy Tori Teriyaki",
+     "unit": "",
+     "desc": "Kip",
+     "note": "",
+     "price_eur": 6.95,
+     "tags": [],
+     "photo": "61788",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 432,
+     "sku": "0072",
+     "name": "Beef Teriyaki",
+     "unit": "",
+     "desc": "Gesneden biefstuk",
+     "note": "",
+     "price_eur": 10.25,
+     "tags": [],
+     "photo": "432",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 433,
+     "sku": "0073",
+     "name": "Gyoza",
+     "unit": "",
+     "desc": "Vleespasteitjes 5 stuks",
+     "note": "",
+     "price_eur": 4.75,
+     "tags": [],
+     "photo": "433",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 434,
+     "sku": "0074",
+     "name": "Suzuki Yaki",
+     "unit": "",
+     "desc": "Witvis",
+     "note": "",
+     "price_eur": 5.25,
+     "tags": [],
+     "photo": "434",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 435,
+     "sku": "0075",
+     "name": "Ebi Chili",
+     "unit": "",
+     "desc": "Garnalenspies 2x",
+     "note": "",
+     "price_eur": 5.25,
+     "tags": [],
+     "photo": "435",
+     "has_options_on_platform": false
+    }
+   ]
+  },
+  {
+   "id": "diner",
+   "name": "Diner",
+   "items": [
+    {
+     "id": 438,
+     "sku": "0079",
+     "name": "Kohitsuji Kushi",
+     "unit": "",
+     "desc": "Runderspies 3x",
+     "note": "",
+     "price_eur": 6.25,
+     "tags": [],
+     "photo": "438",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 60473,
+     "sku": "0080",
+     "name": "Usu Yaki",
+     "unit": "",
+     "desc": "Cheese beefrol",
+     "note": "",
+     "price_eur": 6.95,
+     "tags": [],
+     "photo": "60473",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 58481,
+     "sku": "0082",
+     "name": "Edamame",
+     "unit": "",
+     "desc": "Sojabonen",
+     "note": "",
+     "price_eur": 4.95,
+     "tags": [],
+     "photo": "58481",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 56839,
+     "sku": "0086",
+     "name": "Gyuniki Shoga Yaki",
+     "unit": "",
+     "desc": "Plakjes bief",
+     "note": "",
+     "price_eur": 5.95,
+     "tags": [],
+     "photo": "56839",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 64031,
+     "sku": "0086a",
+     "name": "Gebakken Banaan",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 5.25,
+     "tags": [],
+     "photo": "64031",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 447,
+     "sku": "0087",
+     "name": "Yaki Mushrooms",
+     "unit": "",
+     "desc": "Gebakken champignons",
+     "note": "",
+     "price_eur": 5.25,
+     "tags": [],
+     "photo": "447",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 448,
+     "sku": "0088",
+     "name": "Yasai Mori",
+     "unit": "",
+     "desc": "Courgette",
+     "note": "",
+     "price_eur": 5.25,
+     "tags": [],
+     "photo": "448",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 450,
+     "sku": "0090",
+     "name": "Yaki Meshi",
+     "unit": "",
+     "desc": "Gebakken rijst",
+     "note": "",
+     "price_eur": 5.95,
+     "tags": [],
+     "photo": "450",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 451,
+     "sku": "0091",
+     "name": "Yaki Udon",
+     "unit": "",
+     "desc": "Gebakken bami",
+     "note": "",
+     "price_eur": 5.95,
+     "tags": [],
+     "photo": "451",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 11178,
+     "sku": "0092",
+     "name": "Beef Curry Rice",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 6.75,
+     "tags": [],
+     "photo": "11178",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 61789,
+     "sku": "0096",
+     "name": "Chicken Curry Rice",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 6.75,
+     "tags": [],
+     "photo": "61789",
+     "has_options_on_platform": false
+    }
+   ]
+  },
+  {
+   "id": "soep-salade",
+   "name": "Soep & salade",
+   "items": [
+    {
+     "id": 460,
+     "sku": "0100",
+     "name": "Wakame Sarada",
+     "unit": "",
+     "desc": "Zeewier Salade",
+     "note": "",
+     "price_eur": 3.95,
+     "tags": [
+      "vegetarian"
+     ],
+     "photo": "460",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 461,
+     "sku": "0101",
+     "name": "Kani Sarada",
+     "unit": "",
+     "desc": "Krab salade",
+     "note": "",
+     "price_eur": 3.95,
+     "tags": [],
+     "photo": "461",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 462,
+     "sku": "0102",
+     "name": "Ebi Sarada",
+     "unit": "",
+     "desc": "Garnaal salade",
+     "note": "",
+     "price_eur": 3.95,
+     "tags": [],
+     "photo": "462",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 463,
+     "sku": "0103",
+     "name": "Unagi Sarada",
+     "unit": "",
+     "desc": "Paling salade",
+     "note": "",
+     "price_eur": 3.95,
+     "tags": [],
+     "photo": "463",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 464,
+     "sku": "0104",
+     "name": "Tori Sarada",
+     "unit": "",
+     "desc": "Kip Salade",
+     "note": "",
+     "price_eur": 3.95,
+     "tags": [],
+     "photo": "464",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 58345,
+     "sku": "0105",
+     "name": "Zoet-zuur Komkommer",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 3.95,
+     "tags": [
+      "vegetarian"
+     ],
+     "photo": "58345",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 466,
+     "sku": "0106",
+     "name": "Sashimi Sarada",
+     "unit": "",
+     "desc": "Zalm/tonijn salade",
+     "note": "",
+     "price_eur": 4.1,
+     "tags": [],
+     "photo": "466",
+     "has_options_on_platform": false
+    }
+   ]
+  },
+  {
+   "id": "poke-bowl",
+   "name": "Poke bowl",
+   "items": [
+    {
+     "id": 57633,
+     "sku": "1001",
+     "name": "Classic bowl kip halal",
+     "unit": "",
+     "desc": "Rijst, avocado, komkommer, sojabonen, mango en mais.",
+     "note": "Saus wordt apart geserveerd",
+     "price_eur": 12.5,
+     "tags": [
+      "halal"
+     ],
+     "photo": "57633",
+     "has_options_on_platform": true
+    },
+    {
+     "id": 57634,
+     "sku": "1002",
+     "name": "Classic bowl ebi fry",
+     "unit": "",
+     "desc": "Rijst, avocado, komkommer, sojabonen, mango en mais.",
+     "note": "Saus wordt apart geserveerd",
+     "price_eur": 12.5,
+     "tags": [
+      "shellfish"
+     ],
+     "photo": null,
+     "has_options_on_platform": true
+    },
+    {
+     "id": 57635,
+     "sku": "1003",
+     "name": "Classic bowl zalm",
+     "unit": "",
+     "desc": "Rijst, avocado, komkommer, sojabonen, mango en mais.",
+     "note": "Saus wordt apart geserveerd",
+     "price_eur": 13,
+     "tags": [
+      "fish"
+     ],
+     "photo": "57635",
+     "has_options_on_platform": true
+    },
+    {
+     "id": 61792,
+     "sku": "1004",
+     "name": "Classic bowl tonijn",
+     "unit": "",
+     "desc": "Rijst, avocado, komkommer, sojabonen, mango en mais.",
+     "note": "Saus wordt apart geserveerd",
+     "price_eur": 14,
+     "tags": [
+      "fish"
+     ],
+     "photo": "61792",
+     "has_options_on_platform": true
+    },
+    {
+     "id": 57637,
+     "sku": "1005",
+     "name": "Classic bowl zalm en tonijn",
+     "unit": "",
+     "desc": "Rijst, avocado, komkommer, sojabonen, mango en mais.",
+     "note": "Saus wordt apart geserveerd",
+     "price_eur": 13.5,
+     "tags": [
+      "fish"
+     ],
+     "photo": "57637",
+     "has_options_on_platform": true
+    },
+    {
+     "id": 57638,
+     "sku": "1006",
+     "name": "Classic bowl veggie",
+     "unit": "",
+     "desc": "Rijst, avocado, komkommer, sojabonen, mango, mais, zeewier en omelet.",
+     "note": "Saus wordt apart geserveerd",
+     "price_eur": 12.5,
+     "tags": [
+      "egg",
+      "vegetarian"
+     ],
+     "photo": "57638",
+     "has_options_on_platform": true
+    }
+   ]
+  },
+  {
+   "id": "sushibox",
+   "name": "Sushibox",
+   "items": [
+    {
+     "id": 346,
+     "sku": "0000",
+     "name": "Sushi Box A",
+     "unit": "6 stuks",
+     "desc": "Klein",
+     "note": "",
+     "price_eur": 7,
+     "tags": [],
+     "photo": null,
+     "has_options_on_platform": false
+    },
+    {
+     "id": 347,
+     "sku": "0000a",
+     "name": "Sushi Box B",
+     "unit": "12 stuks",
+     "desc": "Medium",
+     "note": "",
+     "price_eur": 14,
+     "tags": [],
+     "photo": null,
+     "has_options_on_platform": false
+    },
+    {
+     "id": 348,
+     "sku": "0000b",
+     "name": "Sushi Box C",
+     "unit": "24 stuks",
+     "desc": "Groot",
+     "note": "",
+     "price_eur": 25,
+     "tags": [],
+     "photo": null,
+     "has_options_on_platform": false
+    },
+    {
+     "id": 349,
+     "sku": "0000c",
+     "name": "Family Box D",
+     "unit": "50 stuks",
+     "desc": "Extra Groot",
+     "note": "",
+     "price_eur": 48,
+     "tags": [],
+     "photo": null,
+     "has_options_on_platform": false
+    },
+    {
+     "id": 850,
+     "sku": "0000d",
+     "name": "Sushibox SAKE",
+     "unit": "",
+     "desc": "4x spicy sake maki, 6x sake maki, 6x sake nigiri",
+     "note": "",
+     "price_eur": 18,
+     "tags": [],
+     "photo": "850",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 61780,
+     "sku": "0000n",
+     "name": "Sushibox Spicy",
+     "unit": "",
+     "desc": "4x spicy tuna, 4x spicy sake maki, 4x spicy tori maki",
+     "note": "",
+     "price_eur": 14.5,
+     "tags": [],
+     "photo": null,
+     "has_options_on_platform": false
+    },
+    {
+     "id": 359,
+     "sku": "0000m",
+     "name": "Sushibox Yummy",
+     "unit": "",
+     "desc": "4x ebi maki, 4x california maki, 4x wasabi sake maki",
+     "note": "",
+     "price_eur": 13.5,
+     "tags": [],
+     "photo": null,
+     "has_options_on_platform": false
+    },
+    {
+     "id": 63893,
+     "sku": "9000",
+     "name": "Sushibox Green Bites",
+     "unit": "",
+     "desc": "6x avocado maki, 6x komkommer maki, 6x zeewier maki, 1 chuka wakame, 2x inari nigiri, 2x tamago nigiri",
+     "note": "",
+     "price_eur": 18,
+     "tags": [],
+     "photo": "63893",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 63894,
+     "sku": "9001",
+     "name": "Sushibox Tuna Flavor",
+     "unit": "",
+     "desc": "4x spicy tuna maki, 6x tekka maki, 6x maguro nigiri",
+     "note": "",
+     "price_eur": 19.75,
+     "tags": [],
+     "photo": "63894",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 63895,
+     "sku": "9002",
+     "name": "Sushibox Royal Mix",
+     "unit": "",
+     "desc": "6x maguro nigiri, 6x sake nigiri, 6x tekka maki, 6x sake maki",
+     "note": "",
+     "price_eur": 28,
+     "tags": [],
+     "photo": "63895",
+     "has_options_on_platform": false
+    }
+   ]
+  },
+  {
+   "id": "supplementen",
+   "name": "Extra's",
+   "items": [
+    {
+     "id": 12630,
+     "sku": "0000h",
+     "name": "Stokjes",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 0.05,
+     "tags": [],
+     "photo": "12630",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 12631,
+     "sku": "0000i",
+     "name": "Sojasaus",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 0.15,
+     "tags": [],
+     "photo": "12631",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 12632,
+     "sku": "0000j",
+     "name": "Sojasaus groot",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 0.3,
+     "tags": [],
+     "photo": "12632",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 12633,
+     "sku": "0000k",
+     "name": "Wasabi",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 0.1,
+     "tags": [],
+     "photo": "12633",
+     "has_options_on_platform": false
+    },
+    {
+     "id": 12634,
+     "sku": "0000l",
+     "name": "Gember",
+     "unit": "",
+     "desc": "",
+     "note": "",
+     "price_eur": 0.1,
+     "tags": [],
+     "photo": "12634",
+     "has_options_on_platform": false
+    }
+   ]
+  },
+  {
+   "id": "on-the-side",
+   "name": "On the side",
+   "items": [
+    {
+     "id": 467,
+     "sku": "0107",
+     "name": "Sake Sashimi",
+     "unit": "6 stuks",
+     "desc": "",
+     "note": "",
+     "price_eur": 9.95,
+     "tags": [],
+     "photo": "467",
+     "has_options_on_platform": false
+    }
+   ]
+  },
+  {
+   "id": "dessert",
+   "name": "Dessert",
+   "items": [
+    {
+     "id": 2803,
+     "sku": "0112",
+     "name": "Gebakken Banaan",
+     "unit": "4 stuks",
+     "desc": "",
+     "note": "",
+     "price_eur": 5.25,
+     "tags": [
+      "vegetarian"
+     ],
+     "photo": "64031",
+     "has_options_on_platform": false
+    }
+   ]
+  }
+ ]
+}

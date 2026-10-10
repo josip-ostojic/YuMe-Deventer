@@ -1,0 +1,41 @@
+---
+import { biz, hours, routeHref } from '../lib/data';
+import { areas } from '../lib/areas';
+---
+<footer class="border-t border-line bg-ink-2 pb-10 pt-14" data-hours={JSON.stringify(hours)}>
+  <div class="wrap grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <img src="/images/logo-on-dark.webp" alt="YuMe Sushi & Grill, Deventer" width="705" height="310" loading="lazy" class="h-14 w-auto" />
+      <p class="mt-5 flex items-center gap-3 text-[0.98rem]">
+        <span class="h-2 w-2 shrink-0 rounded-full bg-muted/50 data-[open]:bg-gold" aria-hidden="true" data-open-dot></span>
+        <span data-open-status>Dinsdag t/m zondag vanaf 16:30, maandag gesloten</span>
+      </p>
+    </div>
+    <address class="not-italic text-muted">
+      <p class="text-paper">YuMe Sushi &amp; Grill Deventer</p>
+      <p class="mt-2">{biz.address.street}<br />{biz.address.postalCode} {biz.address.city}</p>
+      <p class="mt-2"><a href={routeHref} class="text-gold underline underline-offset-4 hover:text-paper" rel="noopener">Route plannen</a></p>
+      <p class="mt-3">
+        <a href={`tel:${biz.phone_tel}`} class="underline underline-offset-4 hover:text-gold">{biz.phone}</a><br />
+        <a href={`mailto:${biz.email}`} class="underline underline-offset-4 hover:text-gold">{biz.email}</a>
+      </p>
+      <p class="mt-3 text-sm">KvK-nummer: <span class="border border-dashed border-gold/60 px-1.5 py-0.5 text-gold">[TODO]</span></p>
+    </address>
+    <nav aria-label="Voettekst" class="text-muted">
+      <ul class="grid grid-cols-2 gap-x-6 lg:block lg:space-y-1">
+        {areas.map((a) => (<li><a class="inline-block py-1 hover:text-gold" href={a.href}>{a.title}</a></li>))}
+        <li><a class="inline-block py-1 hover:text-gold" href="/privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+    <dl class="text-muted">
+      {hours.map((d, i) => (
+        <div data-day={i} class="flex justify-between gap-6 border-b border-line/40 py-1.5 text-[0.95rem] data-[today]:text-gold">
+          <dt>{d.day}</dt><dd class="tabular-nums">{d.closed ? 'Gesloten' : `${d.open} – ${d.close}`}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+  <div class="wrap mt-12 border-t border-line pt-6 text-sm text-muted">
+    <p>Concept design, not the official website.</p>
+  </div>
+</footer>

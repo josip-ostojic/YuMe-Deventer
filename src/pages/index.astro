@@ -1,0 +1,136 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CtaBar from '../components/CtaBar.astro';
+import WineBottle from '../components/WineBottle.astro';
+import { c, biz, hours, reserveHref, orderHref, routeHref, eur } from '../lib/data';
+import { area } from '../lib/areas';
+import { items, photoUrl, thumbUrl } from '../lib/order';
+import '../styles/hub.css';
+
+const key = (name: string) => items.find((i) => i.name === name)?.photo ?? '';
+const fan = ['Sake Nigiri', 'California Maki', 'Yaki Tori'].map((n) => ({ n, src: thumbUrl(key(n)) }));
+const bowl = photoUrl(key('Classic bowl zalm'));
+const weekday = c.all_you_can_eat.dinner[0];
+const A = (id: string) => area(id);
+---
+<Base
+  title="YuMe Sushi & Grill Deventer | All you can eat aan het Boreelplein"
+  description="All you can eat sushi en grill in Deventer: onbeperkt kiezen uit meer dan 100 Japanse gerechten. Open dinsdag t/m zondag vanaf 16:30. Boreelplein 52."
+>
+  <Header solid={false} />
+  <main id="main">
+    <section class="hub" id="top">
+      <div class="pointer-events-none absolute inset-x-[-12%] inset-y-[-8%] -z-20" aria-hidden="true">
+        <div data-parallax class="h-full w-full"><div class="hero-wave wave h-full w-full"></div></div>
+      </div>
+      <div class="hub-photo" aria-hidden="true">
+        <img src="/images/table.webp" width="1024" height="576" alt="" fetchpriority="high" decoding="async" />
+      </div>
+
+      <div class="wrap hub-inner">
+        <div class="hub-intro">
+          <h1 class="hero-line hub-h1" style="--d:.35s">Onbeperkt sushi en grill</h1>
+          <p class="hero-line mt-5 max-w-md text-lg text-paper/85 md:text-xl" style="--d:.6s">
+            Kies uit meer dan 100 Japanse gerechten aan het Boreelplein in Deventer. Diner vanaf {eur(weekday.adult_price_eur)} per persoon.
+          </p>
+          <div data-hero-actions class="hero-line mt-7 flex flex-wrap gap-3" style="--d:.85s">
+            <a href={reserveHref} class="btn btn-solid">Reserveer</a>
+            <a href={orderHref} class="btn btn-line bg-ink/40">Bestel online</a>
+          </div>
+          <div class="hero-line hub-facts" style="--d:1.05s">
+            <p class="flex items-center gap-3">
+              <span class="h-2 w-2 shrink-0 rounded-full bg-muted/50 data-[open]:bg-gold" aria-hidden="true" data-open-dot></span>
+              <span data-open-status>Dinsdag t/m zondag vanaf 16:30, maandag gesloten</span>
+            </p>
+            <p>{biz.address.street}, {biz.address.city} <a href={routeHref} class="ml-2 text-gold underline underline-offset-4 hover:text-paper" rel="noopener">Route plannen</a></p>
+          </div>
+        </div>
+
+        <nav aria-label="Kies wat u wilt zien">
+          <ul class="hub-grid">
+            <li class="hub-cell hub-cell--wide">
+              <a href={A('all-you-can-eat').href} class="tile tile--gold" style="--i:0">
+                <span class="tile-text">
+                  <span class="tile-title">{A('all-you-can-eat').title}</span>
+                  <span class="tile-fact">{A('all-you-can-eat').blurb}</span>
+                </span>
+                <span class="tile-big" aria-hidden="true">{eur(weekday.adult_price_eur)}<small>per persoon</small></span>
+                <svg class="tile-go" viewBox="0 0 40 12" width="40" height="12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h38M33 1l5 5-5 5" /></svg>
+              </a>
+            </li>
+            <li class="hub-cell">
+              <a href={A('menu').href} class="tile tile--paper" style="--i:1">
+                <span class="tile-text">
+                  <span class="tile-title">{A('menu').title}</span>
+                  <span class="tile-fact">{A('menu').blurb}</span>
+                </span>
+                <span class="tile-visual tile-fan" aria-hidden="true">
+                  {fan.map((f) => (<img src={f.src} alt="" width="200" height="160" loading="lazy" decoding="async" />))}
+                </span>
+                <svg class="tile-go" viewBox="0 0 40 12" width="40" height="12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h38M33 1l5 5-5 5" /></svg>
+              </a>
+            </li>
+            <li class="hub-cell">
+              <a href={A('bestellen').href} class="tile tile--paper" style="--i:2">
+                <span class="tile-text">
+                  <span class="tile-title">{A('bestellen').title}</span>
+                  <span class="tile-fact">{A('bestellen').blurb}</span>
+                </span>
+                <span class="tile-visual tile-bowl" aria-hidden="true"><img src={bowl} alt="" width="640" height="640" loading="lazy" decoding="async" /></span>
+                <svg class="tile-go" viewBox="0 0 40 12" width="40" height="12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h38M33 1l5 5-5 5" /></svg>
+              </a>
+            </li>
+            <li class="hub-cell">
+              <a href={A('wijnkaart').href} class="tile" style="--i:3">
+                <span class="tile-text">
+                  <span class="tile-title">{A('wijnkaart').title}</span>
+                  <span class="tile-fact">{A('wijnkaart').blurb}</span>
+                </span>
+                <span class="tile-visual tile-bottles" aria-hidden="true">
+                  <WineBottle kind="white" /><WineBottle kind="rose" /><WineBottle kind="red" />
+                </span>
+                <svg class="tile-go" viewBox="0 0 40 12" width="40" height="12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h38M33 1l5 5-5 5" /></svg>
+              </a>
+            </li>
+            <li class="hub-cell">
+              <a href={A('over-ons').href} class="tile tile--photo" style="--i:4">
+                <img class="tile-bg" src="/images/napkin.webp" width="500" height="333" alt="" loading="lazy" decoding="async" />
+                <span class="tile-text">
+                  <span class="tile-title">{A('over-ons').title}</span>
+                  <span class="tile-fact">{A('over-ons').blurb}</span>
+                </span>
+                <svg class="tile-go" viewBox="0 0 40 12" width="40" height="12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h38M33 1l5 5-5 5" /></svg>
+              </a>
+            </li>
+            <li class="hub-cell">
+              <a href={A('parkeren').href} class="tile" style="--i:5">
+                <span class="tile-text">
+                  <span class="tile-title">{A('parkeren').title}</span>
+                  <span class="tile-fact">{A('parkeren').blurb}</span>
+                </span>
+                <span class="tile-visual tile-p" aria-hidden="true"><span>P</span></span>
+                <svg class="tile-go" viewBox="0 0 40 12" width="40" height="12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h38M33 1l5 5-5 5" /></svg>
+              </a>
+            </li>
+            <li class="hub-cell hub-cell--wide">
+              <a href={A('contact').href} class="tile tile--contact" style="--i:6">
+                <span class="tile-bg wave" aria-hidden="true"></span>
+                <span class="tile-text">
+                  <span class="tile-title">{A('contact').title}</span>
+                  <span class="tile-fact">{biz.address.street}, {biz.address.city}</span>
+                  <span class="tile-fact" data-open-status></span>
+                </span>
+                <span class="tile-phone" aria-hidden="true">{biz.phone}</span>
+                <svg class="tile-go" viewBox="0 0 40 12" width="40" height="12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 6h38M33 1l5 5-5 5" /></svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <CtaBar />
+</Base>

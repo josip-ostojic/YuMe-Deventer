@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { areas } from '../lib/areas';
+---
+<Base title="Pagina niet gevonden | YuMe Sushi & Grill Deventer" description="Deze pagina bestaat niet. Kies hieronder waar u naartoe wilt." noindex>
+  <Header />
+  <main id="main" class="section pt-32 md:pt-44">
+    <div class="wrap">
+      <h1 class="h2">Deze pagina bestaat niet</h1>
+      <p class="lead mt-5">Misschien zocht u een van deze onderdelen.</p>
+      <ul class="mt-10 grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+        {areas.map((a) => (
+          <li class="border-b border-line">
+            <a href={a.href} class="flex min-h-[5.5rem] items-baseline justify-between gap-4 py-5 hover:text-gold">
+              <span class="font-display text-4xl">{a.title}</span><span class="text-sm text-muted">{a.blurb}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </main>
+  <Footer />
+</Base>

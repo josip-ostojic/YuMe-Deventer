@@ -1,0 +1,74 @@
+/* Shared by all area pages: navigation details, calculator, dish strips, page transitions. Imported from global.css. */
+
+/* ---------- navigation ---------- */
+.nav-link { position: relative; }
+.nav-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0.15rem; height: 1px; background: var(--color-gold); transform: scaleX(0); transform-origin: left; transition: transform 0.45s var(--ease-quiet); }
+.nav-link:hover::after, .nav-link[aria-current="page"]::after { transform: scaleX(1); }
+.nav-link[aria-current="page"] { color: var(--color-gold); }
+.more-arrow { transform: translateX(-8px); opacity: 0.6; transition: transform 0.5s var(--ease-quiet), opacity 0.3s; }
+.more-link:hover .more-arrow, .more-link:focus-visible .more-arrow { transform: none; opacity: 1; }
+.more-link span:first-child { transition: color 0.3s; }
+.more-link:hover span:first-child { color: var(--color-gold); }
+
+/* ---------- all you can eat: calculator ---------- */
+.calc { display: grid; border: 1px solid var(--color-line); }
+@media (min-width: 900px) { .calc { grid-template-columns: 1.15fr 1fr; } }
+.calc-form { padding: 1.5rem; }
+@media (min-width: 768px) { .calc-form { padding: 2.25rem; } }
+.calc-result { display: flex; flex-direction: column; padding: 1.5rem; background: var(--color-gold); color: var(--color-ink); }
+@media (min-width: 768px) { .calc-result { padding: 2.25rem; } }
+.calc-result .text-muted { color: rgb(14 14 14 / 0.75); }
+.calc-label { font-size: 0.98rem; color: var(--color-muted); }
+.calc-result .calc-label { color: rgb(14 14 14 / 0.78); }
+.calc-total { margin-top: 0.4rem; font-family: var(--font-display); font-size: clamp(4rem, 9vw, 6.5rem); line-height: 0.95; font-variant-numeric: tabular-nums; }
+.calc-lines { margin-top: 1.25rem; border-top: 1px solid rgb(14 14 14 / 0.3); }
+.calc-lines li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px solid rgb(14 14 14 / 0.18); font-variant-numeric: tabular-nums; }
+.calc-days { position: relative; display: grid; grid-template-columns: 1fr 1fr; margin-top: 0.6rem; border: 1px solid var(--color-line); max-width: 24rem; }
+.calc-pill { position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px); background: var(--color-gold); transition: transform 0.5s var(--ease-quiet); }
+.calc[data-mode="weekend"] .calc-pill { transform: translateX(100%); }
+.calc-days button { position: relative; z-index: 1; min-height: 3rem; font: inherit; font-weight: 500; color: var(--color-paper); background: none; border: 0; cursor: pointer; transition: color 0.3s; }
+.calc-days button[aria-checked="true"] { color: var(--color-ink); }
+.calc-step { display: inline-flex; align-items: center; border: 1px solid var(--color-line); }
+.calc-step button, .calc-kids button, .calc-add {
+  display: grid; place-items: center; min-width: 2.9rem; min-height: 2.9rem; font: inherit; font-size: 1.4rem; line-height: 1; color: var(--color-paper); background: transparent; border: 0; cursor: pointer; transition: background-color 0.25s, color 0.25s;
+}
+.calc-step button:hover, .calc-kids button:hover { background: var(--color-gold); color: var(--color-ink); }
+.calc-step output { min-width: 3rem; text-align: center; font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+.calc-add { padding: 0 1.1rem; font-size: 1rem; font-weight: 500; border: 1px solid var(--color-gold); }
+.calc-add:hover { background: var(--color-gold); color: var(--color-ink); }
+.calc-kids { margin-top: 0.6rem; }
+.calc-kids li { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 0.75rem; padding: 0.4rem 0; border-bottom: 1px solid rgb(207 168 98 / 0.18); animation: kid-in 0.45s var(--ease-quiet) both; }
+@keyframes kid-in { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
+.calc-kids select { min-height: 2.75rem; padding: 0 0.6rem; font: inherit; color: var(--color-paper); background: var(--color-ink); border: 1px solid var(--color-line); border-radius: 0; }
+.calc-kids li button { min-width: 2.75rem; border: 1px solid var(--color-line); }
+
+/* ---------- dish strips on paper ---------- */
+.taste { display: grid; gap: 1rem 0.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 640px) { .taste { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .taste { grid-template-columns: repeat(6, minmax(0, 1fr)); } .taste--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.taste li { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; text-align: center; }
+.taste img { width: 100%; max-width: 11rem; height: auto; mix-blend-mode: multiply; filter: contrast(1.1); transition: transform 0.7s var(--ease-quiet); }
+.taste li:hover img { transform: scale(1.08) rotate(-2deg); }
+.taste span { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.1; }
+.js.motion .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.8s var(--ease-quiet), transform 0.8s var(--ease-quiet); transition-delay: calc(var(--i, 0) * 60ms); }
+.js.motion .reveal.is-in { opacity: 1; transform: none; }
+
+/* ---------- page to page: a quiet cross-fade, the header stays put ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.32s; animation-timing-function: var(--ease-quiet); }
+::view-transition-group(site-header) { animation: none; }
+
+/* ---------- print: the menu and contact details on paper ---------- */
+@media print {
+  header, .ctabar, .more, .menu-tools, [role="tablist"], footer dl, iframe { display: none !important; }
+  html, body { background: #fff !important; color: #000 !important; }
+  .tabpanel[hidden] { display: block !important; }
+  a { color: inherit !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .calc-pill, .more-arrow, .nav-link::after { transition: none !important; }
+  .calc-kids li { animation: none !important; }
+  .js.motion .reveal { opacity: 1; transform: none; transition: none; }
+}

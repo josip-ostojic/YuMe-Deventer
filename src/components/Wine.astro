@@ -1,0 +1,71 @@
+---
+import { c, num } from '../lib/data';
+import WineBottle from './WineBottle.astro';
+const sections = c.wine_list.sections as any[];
+
+const kindOf = (section: string, sub: string) => {
+  if (section.startsWith('Mousserende')) return 'sparkling';
+  if (section.startsWith('Dessertwijnen')) return 'dessert';
+  if (sub.startsWith('Ros')) return 'rose';
+  if (sub === 'Rood') return 'red';
+  return 'white';
+};
+const legend = [
+  { k: 'white', t: 'Wit' },
+  { k: 'rose', t: 'Rosé' },
+  { k: 'red', t: 'Rood' },
+  { k: 'sparkling', t: 'Mousserend' },
+  { k: 'dessert', t: 'Dessert' },
+] as const;
+---
+<section id="wijnkaart" class="section pt-32 md:pt-44">
+  <div class="wrap">
+    <h1 class="h2">Wijnkaart</h1>
+    <p class="lead mt-5">Wijn per glas of per fles. Prijzen in euro.</p>
+
+    <ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted" aria-label="Soorten wijn">
+      {legend.map((l) => (
+        <li class="flex items-center gap-2"><WineBottle kind={l.k} class="h-7 w-auto" />{l.t}</li>
+      ))}
+    </ul>
+
+    <div class="mt-10 border-t border-line">
+      {sections.map((s, si) => (
+        <details class="wine border-b border-line">
+          <summary class="flex min-h-[4.5rem] items-center justify-between gap-4 py-4">
+            <h2 class="text-3xl md:text-4xl">{s.name}</h2>
+            <span class="plus grid h-10 w-10 shrink-0 place-items-center border border-line text-2xl leading-none text-gold" aria-hidden="true"><span>+</span></span>
+          </summary>
+          <div class="pb-10">
+            {s.subsections.map((sub: any) => (
+              <div class="mt-2 first:mt-0">
+                {sub.name && <h3 class="mb-2 mt-6 font-display text-2xl text-gold">{sub.name}</h3>}
+                <ul>
+                  {sub.items.map((w: any) => (
+                    <li class="wine-row grid grid-cols-[2.5rem_1fr] gap-x-5 gap-y-1 border-t border-line/40 py-5 first:border-t-0 sm:grid-cols-[2.5rem_1fr_auto]">
+                      <WineBottle kind={kindOf(s.name, sub.name)} class="wine-bottle row-span-2 mt-1 h-[4.5rem] w-auto sm:row-span-1" />
+                      <div>
+                        <p class="text-lg font-medium">{w.name}</p>
+                        {w.region && <p class="text-sm text-gold">{w.region}</p>}
+                        {w.desc && <p class="mt-1 max-w-2xl text-[0.95rem] leading-snug text-muted">{w.desc}</p>}
+                      </div>
+                      <p class="col-start-2 mt-2 flex gap-6 text-lg tabular-nums sm:col-start-3 sm:mt-0 sm:justify-end">
+                        {w.glas != null && <span><span class="mr-1 text-sm text-muted">glas</span>{num(w.glas)}</span>}
+                        {w.fles20cl != null && <span><span class="mr-1 text-sm text-muted">20 cl</span>{num(w.fles20cl)}</span>}
+                        {w.fles != null && <span><span class="mr-1 text-sm text-muted">fles</span>{num(w.fles)}</span>}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <p class="mt-8 text-sm text-muted">
+      Bier, frisdrank en overige dranken: <span class="border border-dashed border-gold/60 px-1.5 py-0.5 text-gold">[TODO] staan niet op de huidige site</span>
+    </p>
+  </div>
+</section>

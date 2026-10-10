@@ -1,0 +1,22 @@
+---
+// One area of the site on its own page: header, content, "verder kijken", footer, mobile call bar.
+import Base from './Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import More from '../components/More.astro';
+import CtaBar from '../components/CtaBar.astro';
+import { area } from '../lib/areas';
+
+interface Props { area: string; title?: string; description?: string }
+const props = Astro.props;
+const a = area(props.area);
+const title = props.title ?? `${a.title} | YuMe Sushi & Grill Deventer`;
+const description = props.description ?? a.description;
+---
+<Base title={title} description={description} crumbs={[{ name: a.title, href: a.href }]}>
+  <Header />
+  <main id="main"><slot /></main>
+  <More current={props.area} />
+  <Footer />
+  <CtaBar />
+</Base>

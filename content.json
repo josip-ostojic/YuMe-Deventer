@@ -1,0 +1,450 @@
+{
+  "_meta": {
+    "purpose": "Single source of truth for the YuMe Deventer concept redesign. Never add facts that are not here. Missing info = [TODO].",
+    "researched": "2026-10-09",
+    "sources": {
+      "pages": [
+        "https://www.yumesushi.nl/deventer/",
+        "https://www.yumesushi.nl/deventer/all-you-can-eat/",
+        "https://www.yumesushi.nl/deventer/parkeren-bij-yume/",
+        "https://www.yumesushi.nl/deventer/menu/",
+        "https://www.yumesushi.nl/deventer/wijnkaart/",
+        "https://www.yumesushi.nl/deventer/over-ons/"
+      ],
+      "menu_images": "Menu and wine list exist only as JPG images on the old site. Dishes below were transcribed by reading the 2025/09 menu images (1.jpg, 2.jpg) and the 2025/06 wine list images. Dessert vegetarian markers were not clearly readable, so they are left out.",
+      "online_ordering": "https://foodtown.nl/boreel-cj/"
+    },
+    "open_questions_for_owner": [
+      "Hoe lang is de wachttijd tussen twee bestelrondes? (Staat nu als 'een wachttijd', zonder aantal minuten.)",
+      "Tijdslimiet all you can eat: oude site zegt twee uur, een oud-medewerker zegt langer. Wat is het echte aantal uren? (Staat nu nergens op de site.)",
+      "Opening hours conflict: website says Di-Do 16.30-22.00, Vr-Za 16.30-22.30, Zo 16.30-22.00. The printed menu card says 'maandag t/m donderdag tot 22:30' and 'vrijdag t/m zondag tot 22:30'. Which is correct?",
+      "Kids price: website says EUR 2,50 per year of age on all days; the printed menu card says EUR 2,60 on Fri-Sun. Which is correct?",
+      "Tagline: logo says 'Sushi & Grill', menu card says 'Sushi Grill & Tapas'. Which to use?",
+      "Lunch: website lists lunch prices but marks them 'Tijdelijk gesloten'. Is lunch coming back?",
+      "Reservation: no reservation link or system is mentioned anywhere on the old site (only the phone number). Is there one?",
+      "Items 138 (Rib-eye) and 139 (Ossenhaas) in 'On the side' show no extra price on the card. Confirm they are free or what they cost.",
+      "Drinks other than wine (beer, soft drinks, sake, tea, coffee): not found anywhere."
+    ]
+  },
+
+  "business": {
+    "name": "YuMe Sushi & Grill Deventer",
+    "name_on_logo": "YuMe Sushi & Grill, Deventer",
+    "tagline_on_card": "Sushi Grill & Tapas",
+    "meaning": "YuMe is het Japanse woord voor droom.",
+    "cuisine": ["Japans", "Sushi", "Grill", "Teppanyaki", "Wok", "Frituur"],
+    "address": {
+      "street": "Boreelplein 52",
+      "postalCode": "7411 EH",
+      "city": "Deventer",
+      "country": "NL"
+    },
+    "phone": "0570-820381",
+    "phone_tel": "+31570820381",
+    "email": "info@yumedeventer.nl",
+    "order_online_url": "https://foodtown.nl/boreel-cj/",
+    "reservation_url": "[TODO]",
+    "kvk": "[TODO]",
+    "social": "[TODO] (none found on old site)",
+    "geo": "[TODO]"
+  },
+
+  "opening_hours": {
+    "source": "Website home page and Over ons. Conflicts with printed menu card, see _meta.open_questions_for_owner.",
+    "days": [
+      { "day": "Maandag", "open": null, "close": null, "closed": true },
+      { "day": "Dinsdag", "open": "16:30", "close": "22:00", "closed": false },
+      { "day": "Woensdag", "open": "16:30", "close": "22:00", "closed": false },
+      { "day": "Donderdag", "open": "16:30", "close": "22:00", "closed": false },
+      { "day": "Vrijdag", "open": "16:30", "close": "22:30", "closed": false },
+      { "day": "Zaterdag", "open": "16:30", "close": "22:30", "closed": false },
+      { "day": "Zondag", "open": "16:30", "close": "22:00", "closed": false }
+    ],
+    "note": "Op feestdagen gelden andere tarieven."
+  },
+
+  "all_you_can_eat": {
+    "intro": "Onbeperkt kunt u kiezen uit meer dan 100 traditionele, heerlijke Japanse gerechten waaronder sushi, diverse gegrilde vlees-, kip- en vissoorten, Teppanyaki, wok- en frituurgerechten.",
+    "duration": "[TODO] Tijdslimiet onbekend. De oude site zegt twee uur, maar een oud-medewerker zegt dat het langer is. Op de nieuwe site staat daarom geen tijd.",
+    "dish_count": "meer dan 100",
+    "dinner": [
+      {
+        "label": "Dinsdag t/m donderdag",
+        "adult_price_eur": 39.5,
+        "kids": "3 t/m 11 jaar: EUR 2,50 per jaar"
+      },
+      {
+        "label": "Vrijdag t/m zondag",
+        "adult_price_eur": 41.5,
+        "kids": "3 t/m 11 jaar: EUR 2,50 per jaar (menukaart noemt EUR 2,60, zie open vragen)"
+      }
+    ],
+    "lunch": {
+      "status": "Tijdelijk gesloten",
+      "adult_price_eur": 27.5,
+      "kids": [
+        { "age": "3 t/m 8 jaar", "price_eur": 10.0 },
+        { "age": "9 t/m 11 jaar", "price_eur": 12.5 }
+      ],
+      "show_on_site": false
+    },
+    "price_notes": [
+      "Prijzen zijn exclusief drinken.",
+      "Op feestdagen gelden andere tarieven.",
+      "Maandag gesloten."
+    ],
+    "rules": [
+      "Maximaal 3 gerechten per ronde per persoon.",
+      "Tussen twee bestelrondes zit een wachttijd."
+    ],
+    "removed_from_old_site": "De oude site noemde de regel dat de volgende bestelling pas na het opeten van alles kan, en noemde kosten voor niet opgegeten gerechten (sushi EUR 1,00, warm EUR 3,00 per gerecht) en 'verspilling wordt niet gewaardeerd'. Dat geldt volgens een oud-medewerker niet in Deventer, dus het staat niet op de nieuwe site."
+  },
+
+  "parking": {
+    "intro": "Gasten van het restaurant ontvangen gereduceerde parkeertarieven.",
+    "rates": [
+      { "duration": "Dagkaart", "normal_eur": 10.0, "with_yume_eur": 7.5 },
+      { "duration": "4 uur", "normal_eur": 8.0, "with_yume_eur": 6.5 }
+    ],
+    "details": "Parkeerlocaties en wandelafstand: zie de Q-Park website (op de oude site alleen als verwijzing).",
+    "garage_name": "[TODO] exact Q-Park garage name and walking distance not stated on old site",
+    "how_to_get_discount": "[TODO] not explained on old site (ticket validation at restaurant?)"
+  },
+
+  "about": {
+    "concept": "YuMe is het Japanse woord voor droom. Het restaurant werkt met een All You Can Eat-concept: onbeperkt kiezen uit meer dan 100 Japanse gerechten.",
+    "interior": "Licht, fris en trendy interieur met Oosterse invloeden.",
+    "kitchen": "De koks bereiden sushi-, grill-, wok- en frituurgerechten volgens de verfijnde en traditionele Japanse keuken.",
+    "history": "[TODO] no founding year or owner story on old site",
+    "owner": "[TODO]"
+  },
+
+  "menu": {
+    "source": "Menukaart Sept 2025 (two JPG spreads on the old site). Numbers are the numbers on the card; guests order by number.",
+    "legend": { "veg": "Vegetarisch gerecht", "halal": "Halal-teken op de kaart" },
+    "extra_cost_note": "Bij de gerechten onder 'On the side' komen extra kosten.",
+    "categories": [
+      {
+        "id": "sushi",
+        "tab": "Sushi",
+        "groups": [
+          {
+            "name": "Nigiri",
+            "unit": "per stuk",
+            "items": [
+              { "n": 1, "name": "Sake", "desc": "zalm" },
+              { "n": 2, "name": "Maguro", "desc": "tonijn" },
+              { "n": 3, "name": "Suzuki", "desc": "zeebaars" },
+              { "n": 4, "name": "Ebi", "desc": "gekookte garnaal" },
+              { "n": 5, "name": "Kani", "desc": "krab" },
+              { "n": 6, "name": "Tamago", "desc": "zoete omelet", "veg": true },
+              { "n": 7, "name": "Inari", "desc": "tofu", "veg": true },
+              { "n": 8, "name": "Unagi", "desc": "paling" },
+              { "n": 9, "name": "Flamed tuna", "desc": "geflambeerde tonijn" },
+              { "n": 10, "name": "Flamed sake", "desc": "geflambeerde zalm" },
+              { "n": 11, "name": "Sake cheese", "desc": "geflambeerde kaas" },
+              { "n": 12, "name": "Flamed suzuki", "desc": "geflambeerde zeebaars" }
+            ]
+          },
+          {
+            "name": "Maki",
+            "unit": "per set",
+            "items": [
+              { "n": 20, "name": "Sake maki", "desc": "zalm rol" },
+              { "n": 21, "name": "Tekka maki", "desc": "tonijn rol" },
+              { "n": 22, "name": "Kappa maki", "desc": "komkommer rol", "veg": true },
+              { "n": 23, "name": "Kani maki", "desc": "krab rol" },
+              { "n": 24, "name": "Avocado maki", "desc": "avocado rol", "veg": true },
+              { "n": 25, "name": "California maki", "desc": "avocado krab rol" },
+              { "n": 26, "name": "Wasabi sake maki", "desc": "avocado zalm rol" },
+              { "n": 27, "name": "Crispy maki", "desc": "", "veg": true },
+              { "n": 28, "name": "Banaan maki", "desc": "", "veg": true },
+              { "n": 29, "name": "Cheese maki", "desc": "kaas rol", "veg": true },
+              { "n": 30, "name": "Crispy ebi maki", "desc": "garnaal rol" },
+              { "n": 31, "name": "Ebi maki", "desc": "garnaal rol met viseitjes" },
+              { "n": 32, "name": "Ebi avocado maki", "desc": "garnaal avocado rol" },
+              { "n": 33, "name": "Unagi maki", "desc": "paling rol" },
+              { "n": 34, "name": "Tori maki", "desc": "kip rol", "halal": true },
+              { "n": 35, "name": "Spicy tori maki", "desc": "pittige kip rol", "halal": true },
+              { "n": 36, "name": "Spicy sake maki", "desc": "pittige zalm rol" },
+              { "n": 37, "name": "Spicy tuna maki", "desc": "pittige tonijn rol" },
+              { "n": 38, "name": "Cream cheese sake maki", "desc": "roomkaas zalm rol" },
+              { "n": 39, "name": "Mango sake maki", "desc": "mango zalm rol" },
+              { "n": 40, "name": "Beef maki", "desc": "bief rol", "halal": true },
+              { "n": 41, "name": "Carpaccio maki", "desc": "", "halal": true },
+              { "n": 42, "name": "Veggie maki", "desc": "", "veg": true }
+            ]
+          },
+          {
+            "name": "Temaki",
+            "unit": "handrol",
+            "items": [
+              { "n": 50, "name": "Sake temaki", "desc": "zalm handrol" },
+              { "n": 51, "name": "Maguro temaki", "desc": "tonijn handrol" },
+              { "n": 52, "name": "California temaki", "desc": "krab handrol" },
+              { "n": 53, "name": "Spicy sake temaki", "desc": "pittige zalm handrol" },
+              { "n": 54, "name": "Ebi fry temaki", "desc": "garnaal handrol" },
+              { "n": 55, "name": "Tori temaki", "desc": "kip handrol", "halal": true },
+              { "n": 56, "name": "Unagi temaki", "desc": "paling handrol" },
+              { "n": 57, "name": "Wakame temaki", "desc": "zeewier handrol", "veg": true }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "grill",
+        "tab": "Grill & wok",
+        "groups": [
+          {
+            "name": "Grilled & fried",
+            "items": [
+              { "n": 60, "name": "Ebi fry", "desc": "garnaal" },
+              { "n": 61, "name": "Dragon cake", "desc": "aardappel", "veg": true },
+              { "n": 62, "name": "Gomaböru", "desc": "sesamballetjes", "veg": true },
+              { "n": 63, "name": "Chicken wings", "desc": "kippenvleugels", "halal": true },
+              { "n": 64, "name": "Ika fried", "desc": "inktvis" },
+              { "n": 65, "name": "Mini loempia", "desc": "" },
+              { "n": 66, "name": "Vietnamese loempia", "desc": "" },
+              { "n": 67, "name": "Shrimp potato", "desc": "garnaal in aardappel" },
+              { "n": 68, "name": "Zoete paprika", "desc": "", "veg": true },
+              { "n": 69, "name": "Yaki tori", "desc": "kipspies", "halal": true },
+              { "n": 70, "name": "Kohitsuji kushi", "desc": "runderspies", "halal": true },
+              { "n": 71, "name": "Tori teriyaki", "desc": "gebakken kip", "halal": true },
+              { "n": 72, "name": "Tori curry", "desc": "gebakken kip met kerrie", "halal": true },
+              { "n": 73, "name": "Tori karaage", "desc": "kipfilet", "halal": true },
+              { "n": 74, "name": "Koreaanse kip", "desc": "" },
+              { "n": 75, "name": "Togarashi ebi", "desc": "pittige garnaal" },
+              { "n": 76, "name": "Suzuki yaki", "desc": "witvis" },
+              { "n": 77, "name": "Gyoza", "desc": "kip pastei" },
+              { "n": 78, "name": "Kipnuggets", "desc": "", "halal": true },
+              { "n": 79, "name": "Frikandel", "desc": "" },
+              { "n": 80, "name": "Patat", "desc": "", "veg": true }
+            ]
+          },
+          {
+            "name": "Diner",
+            "items": [
+              { "n": 84, "name": "Stoofvlees", "desc": "", "halal": true },
+              { "n": 85, "name": "Beef teriyaki", "desc": "gesneden biefstuk", "halal": true },
+              { "n": 86, "name": "Black pepper beef", "desc": "bief met zwarte peper", "halal": true },
+              { "n": 87, "name": "Gyuniku shogayaki", "desc": "plakjes bief", "halal": true },
+              { "n": 88, "name": "Usu yaki kaas", "desc": "biefrol", "halal": true },
+              { "n": 89, "name": "Spicy tori", "desc": "teriyaki pittige kip", "halal": true },
+              { "n": 90, "name": "Curry shrimp", "desc": "kerry garnaal" },
+              { "n": 91, "name": "Ebi yaki", "desc": "garnaal" },
+              { "n": 92, "name": "Sake teriyaki", "desc": "zalmfilet" },
+              { "n": 93, "name": "Mosselen", "desc": "" },
+              { "n": 94, "name": "Gebakken bami", "desc": "" },
+              { "n": 95, "name": "Yaki meshi", "desc": "gebakken rijst" },
+              { "n": 96, "name": "Gebakken krieltjes", "desc": "", "veg": true },
+              { "n": 97, "name": "Edamame", "desc": "sojaboontjes", "veg": true },
+              { "n": 98, "name": "Verse groente", "desc": "", "veg": true },
+              { "n": 99, "name": "Yaki mushrooms", "desc": "gebakken champignons", "veg": true },
+              { "n": 100, "name": "Yasai mori", "desc": "gebakken courgette", "veg": true },
+              { "n": 101, "name": "Chicken curry rice", "desc": "kip kerrie rijst", "halal": true },
+              { "n": 102, "name": "Beef curry rice", "desc": "bief kerrie rijst", "halal": true }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "voor",
+        "tab": "Soep & salade",
+        "groups": [
+          {
+            "name": "Soepen",
+            "items": [
+              { "n": 110, "name": "Miso soep", "desc": "", "veg": true },
+              { "n": 111, "name": "Zoete tomaten soep", "desc": "", "veg": true },
+              { "n": 112, "name": "Vis/kreeft soep", "desc": "" }
+            ]
+          },
+          {
+            "name": "Salade & voorgerecht",
+            "items": [
+              { "n": 115, "name": "Wakame sarada", "desc": "zeewier salade", "veg": true },
+              { "n": 116, "name": "Kani sarada", "desc": "krab salade" },
+              { "n": 117, "name": "Sashimi sarada", "desc": "zalm-tonijn salade" },
+              { "n": 118, "name": "Tori sarada", "desc": "kip salade" },
+              { "n": 119, "name": "Unagi sarada", "desc": "paling salade" },
+              { "n": 120, "name": "Zoet-zure komkommer", "desc": "", "veg": true },
+              { "n": 121, "name": "Zalm tartaar", "desc": "" },
+              { "n": 122, "name": "Bief tartaar", "desc": "" },
+              { "n": 123, "name": "Carpaccio bief", "desc": "", "halal": true },
+              { "n": 124, "name": "Eendenborst filet", "desc": "" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "side",
+        "tab": "On the side",
+        "note": "Bij deze gerechten komen extra kosten (bovenop het All You Can Eat-tarief).",
+        "groups": [
+          {
+            "name": "On the side",
+            "items": [
+              { "n": 130, "name": "Sake sashimi", "desc": "zalm", "extra_eur": 2.0 },
+              { "n": 131, "name": "Tuna sashimi", "desc": "tonijn", "extra_eur": 3.0 },
+              { "n": 132, "name": "Sake / tuna", "desc": "sashimi zalm / tonijn", "extra_eur": 2.5 },
+              { "n": 133, "name": "Sake tataki sashimi", "desc": "zalm / viseitjes", "extra_eur": 2.0 },
+              { "n": 134, "name": "Coquilles", "desc": "", "extra_eur": 1.0 },
+              { "n": 135, "name": "Ikura sake", "desc": "viseitjes / zalm", "extra_eur": 0.5 },
+              { "n": 136, "name": "Chuka wakame", "desc": "zeewier", "extra_eur": 0.5 },
+              { "n": 137, "name": "Ramuyaki", "desc": "lamsrack", "extra_eur": 1.0, "halal": true },
+              { "n": 138, "name": "Rib-eye", "desc": "", "extra_eur": "[TODO] prijs" },
+              { "n": 139, "name": "Ossenhaas", "desc": "", "extra_eur": "[TODO] prijs", "halal": true }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "dessert",
+        "tab": "Dessert",
+        "groups": [
+          {
+            "name": "Dessert",
+            "items": [
+              { "n": 150, "name": "Vanille ijs", "desc": "" },
+              { "n": 151, "name": "Aardbeien ijs", "desc": "" },
+              { "n": 152, "name": "Groene thee ijs", "desc": "" },
+              { "n": 153, "name": "Zwarte sesam ijs", "desc": "" },
+              { "n": 154, "name": "Fruitsalade", "desc": "" },
+              { "n": 155, "name": "Lychees", "desc": "" },
+              { "n": 156, "name": "Brownie", "desc": "" },
+              { "n": 157, "name": "Panna cotta", "desc": "" },
+              { "n": 158, "name": "Crème brûlée", "desc": "" },
+              { "n": 159, "name": "Slagroom soesjes", "desc": "" },
+              { "n": 160, "name": "Witte chocolade mousse", "desc": "" },
+              { "n": 161, "name": "Bruine chocolade mousse", "desc": "" }
+            ]
+          }
+        ]
+      }
+    ],
+    "special": [
+      { "n": "[old card #51]", "name": "Chef's surprise", "desc": "Laat u verrassen!", "note": "Only on the 2022 card, not on the Sept 2025 card. Do not show." }
+    ]
+  },
+
+  "wine_list": {
+    "source": "Wijnkaart juni 2025 (two JPG pages on the old site). Prices in euro; 'glas' = per glas, 'fles' = per fles, 'fles20cl' = 20 cl fles. Descriptions are the card's own text, shortened only where marked.",
+    "other_drinks": "[TODO] beer, soft drinks, sake, tea, coffee not found",
+    "sections": [
+      {
+        "name": "Huiswijnen",
+        "subsections": [
+          {
+            "name": "Wit",
+            "items": [
+              { "name": "Camina - Verdejo", "region": "Spanje, La Mancha", "glas": 4.5, "fles": 22.5, "desc": "Authentieke aroma's van Verdejo druif als meloen en citrus in combinatie met gedroogde peer en venkel. Fris, met een mooie structuur en uitstekende balans." },
+              { "name": "Galianni - Pinot Grigio", "region": "Italië, Veneto", "glas": 5.0, "fles": 25.0, "desc": "Heldere strogele kleur met groene reflecties. Delicate aroma's van citrusvruchten, groene appel en een vleugje bloemen. Fris en knisperend." },
+              { "name": "Le Petit Maurice - Sauvignon Blanc", "region": "Frankrijk, Languedoc", "glas": 5.5, "fles": 27.5, "desc": "Licht groengeel van kleur, stuivende aroma's van groene kruiden, passievrucht en jasmijn. Levendige citrus aroma's met een fruitige droge afdronk." },
+              { "name": "Le Petit Maurice - Chardonnay", "region": "Frankrijk, Languedoc", "glas": 5.5, "fles": 27.5, "desc": "Licht geel van kleur met elegante aroma's van vers wit fruit, witte bloesem en vanille. In de mond peer, honing en een lichte toets van eikenhout." },
+              { "name": "Markenland", "region": "Duitsland, Rheinhessen", "glas": 4.25, "fles": 22.5, "desc": "Evenwichtige en aangename zoete witte wijn." }
+            ]
+          },
+          {
+            "name": "Rosé",
+            "items": [
+              { "name": "Crama Regala - Pinot Grigio Blush Rosé", "region": "Moldavië, Cahul", "glas": 5.0, "fles": 25.0, "desc": "Bleekroze van kleur met aroma's van aardbeien, frambozen en zoete kersen. Verfrissend, droog en een mineraliteit." }
+            ]
+          },
+          {
+            "name": "Rood",
+            "items": [
+              { "name": "Camina - Tempranillo", "region": "Spanje, La Mancha", "glas": 4.5, "fles": 22.5, "desc": "Robijnrode kleur met aroma's van kersen en kruiden. Volle body met een intense afdronk." },
+              { "name": "Crama Regala - Cabernet Sauvignon", "region": "Moldavië, Cahul", "glas": 5.0, "fles": 25.0, "desc": "Diepe, donkere robijnrode kleur met levendige paarse tinten. Aroma van krachtige tonen van groene paprika, zwarte bessen en bramen. Granaatappels, zoethout en een vleugje tabak." },
+              { "name": "Galianni - Primitivo", "region": "Italië, Puglia", "glas": 5.0, "fles": 25.0, "desc": "Diepe robijnrode kleur en een verleidelijk bouquet van rijpe kersen, pruimen en bramen, met subtiele tonen van vanille, kruiden en een hint van cacao. Vol en rond, met zachte tannines." },
+              { "name": "Le Petit Maurice - Merlot", "region": "Frankrijk, Languedoc", "glas": 5.5, "fles": 27.5, "desc": "Granaat rood van kleur met aroma's van drop en kersen. In de mond zachte tannines, rijpe pruimen en aroma's van mint." }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Exclusieve wijnen",
+        "subsections": [
+          {
+            "name": "Wit",
+            "items": [
+              { "name": "Michel Girard et Fils - Sancerre Blanc AOP", "region": "Frankrijk, Loire", "fles": 55.0, "desc": "Droog gevinifieerde wijn van de Sauvignon Blanc druif. Fruitig met veel finesse; een glas vol knisperig fruit." },
+              { "name": "Domaine de la Maulière - Chablis", "region": "Frankrijk, Bourgogne", "fles": 65.0, "desc": "Droge witte wijn, negen maanden gerijpt op roestvrij stalen vaten. Gouden kleur met groene tinten, tonen van bloemen en mineralen. Vol en heerlijk fris met een mooie lengte." }
+            ]
+          },
+          {
+            "name": "Rood",
+            "items": [
+              { "name": "Pelassa - Barolo DOCG", "region": "Italië, Piemonte", "fles": 65.0, "desc": "Rijpt in vaten van Sloveens eiken. Goede structuur, een geurpalet van kruiden en hints van drop. Vol en fluweelzacht met veel tannines." },
+              { "name": "Bodegas Rutini Wines Single Vineyard 'Altamira' Gran Malbec", "region": "Argentinië, Mendoza", "fles": 79.5, "desc": "Druiven van hoogste kwaliteit. Aromatisch, fris en intens, met tonen van rood fruit en kruiden. Zijdezacht met minerale tonen en verfijnde zuren." }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mousserende wijnen",
+        "subsections": [
+          {
+            "name": "",
+            "items": [
+              { "name": "Donna Gloria - Prosecco Spumante", "region": "Italië, Veneto", "fles20cl": 7.5, "fles": 25.0, "desc": "Fruitig en verfijnd met tonen van citrus en appel." },
+              { "name": "Champagne Tribaut - Brut", "region": "Frankrijk, Champagne", "fles": 52.5, "desc": "Frisse, fruitige champagne met aroma's van gedroogd fruit, appel en een vleugje abrikoos. Zacht van mousse, geschikt als aperitief." },
+              { "name": "Champagne Tribaut - Brut Rosé", "region": "Frankrijk, Champagne", "fles": 60.0, "desc": "Zalmroze kleur, aroma's van rood fruit, 10% rode wijn uit de Damery streek. Fijn, fruitig en rond, met cassis en framboos." }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dessertwijnen",
+        "subsections": [
+          {
+            "name": "",
+            "items": [
+              { "name": "Stella - Rosso Moscatel", "region": "Sétubal, Portugal", "glas": 4.5, "desc": "Volle, zoete wijn met aroma's van sinaasappel, noten en rozijnen." },
+              { "name": "Japanse Pruimenwijn - Choyu Umeshu", "region": "", "glas": 4.5, "fles": 27.5, "desc": "Gemaakt van de Japanse Umeshu vrucht. Een fruitige en delicate smaak met aroma's van sinaasappel, noten en rozijnen." }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Kaartwijnen",
+        "subsections": [
+          {
+            "name": "Wit",
+            "items": [
+              { "name": "Domini Veneti Marco Polo - Pinot Grigio", "region": "Italië, Veneto", "fles": 31.0, "desc": "Licht en delicaat met een subtiele bloemengeur en Golden Delicious appels. Soepel, fruitig en romig." },
+              { "name": "Waka - Sauvignon Blanc", "region": "Nieuw-Zeeland, Marlborough", "fles": 32.5, "desc": "Zeer frisse en uitbundige geur van citrus, tropisch fruit en vers gemaaid gras." },
+              { "name": "Lynx - Chardonnay Barrel Fermented", "region": "Verenigde Staten, Californië", "fles": 32.5, "desc": "Goudgeel, volle Chardonnay met rijke aroma's van tropisch fruit en tonen van vanille en toast." },
+              { "name": "Weingut Topf - Grüner Veltliner Strassertal", "region": "Oostenrijk, Kamptal", "fles": 35.0, "desc": "Levendige, pittige en charmante Grüner Veltliner met aroma's van appel en citrus en een licht pepertje." }
+            ]
+          },
+          {
+            "name": "Rosé",
+            "items": [
+              { "name": "Solval - Rosé Coteaux des Castellas", "region": "Frankrijk, Narbonne", "fles": 28.0, "desc": "Licht zalmroze van kleur met een geur van rood fruit en wat kruidigheid. In balans, vol fruit en fris." },
+              { "name": "Vignes La Madrague - Vue Sur Mer Rosé", "region": "Frankrijk, Cotes de Provence", "fles": 37.5, "desc": "Licht bleekroze met aroma's van steenvruchten en rood fruit. Complex, in balans, lange frisse afdronk." }
+            ]
+          },
+          {
+            "name": "Rood",
+            "items": [
+              { "name": "TerraNoble Winery - Reserva Carmenere", "region": "Chili, Maule Valley", "fles": 28.5, "desc": "Aroma's van bramen, bosbessen en kersen. Fijne kruidigheid van nootmuskaat en peper." },
+              { "name": "Lynx - Black Label Petite Sirah", "region": "Verenigde Staten, Californië", "fles": 30.0, "desc": "Helder dieppaars, nuances van zwart fruit en tonen van vanille en toast." },
+              { "name": "Barao de Villar - Smiling Donkey", "region": "Portugal, Douro", "fles": 30.5, "desc": "Donkerrood met elegante aroma's van zoete en gerijpte vruchten gecombineerd met verfijnde kruidtonen." },
+              { "name": "Conde de Tresaguas - Rioja Tinto", "region": "Spanje, Rioja", "fles": 30.5, "desc": "Robijnrood met aroma's van rood fruit, kruiden en vanille. Warm met fruitige aroma's en een lange afdronk van getoast brood." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
+  "site_assets_found": {
+    "logo_old": "https://www.yumesushi.nl/deventer/wp-content/uploads/sites/6/2015/10/logo-deventer-goede-afmetingen-3.jpg",
+    "logo_note": "Use the logo supplied by the client (black 'YU' + gold 'ME', 'SUSHI & GRILL', 'Deventer'). Old site files are low-res JPG.",
+    "photos": "[TODO] Only one low-res WhatsApp photo and the menu-card dish photos exist. Menu-card photos are print scans; need real photos from owner."
+  },
+
+  "footer": {
+    "concept_note": "Concept design, not the official website."
+  }
+}

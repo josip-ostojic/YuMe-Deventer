@@ -1,0 +1,113 @@
+---
+import { categories, photoUrl, thumbUrl, TAG_LABEL } from '../../lib/order';
+import TagIcon from '../TagIcon.astro';
+
+const eur = (n: number) => '€ ' + n.toLocaleString('nl-NL', { minimumFractionDigits: 2 });
+// two dishes have no photo on the platform but do have a crop on the printed card
+const CARD_FALLBACK: Record<string, number> = { 'Carpaccio Maki': 41, 'Beef Maki': 40 };
+const total = categories.reduce((n, c) => n + c.items.length, 0);
+---
+<section class="on-paper bg-paper text-paper-ink" id="shop">
+  <!-- Category bar: sticks under the header, follows the scroll -->
+  <div class="o-catbar sticky top-16 z-30 border-b border-paper-ink/15 bg-paper md:top-20">
+    <div class="wrap">
+      <nav aria-label="Categorieën" class="o-catnav" data-catnav>
+        <span class="o-catink" aria-hidden="true"></span>
+        <ul>
+          {categories.map((cat) => {
+            const first = cat.items.find((i) => i.photo);
+            return (
+              <li>
+                <a href={`#cat-${cat.id}`} data-cat={cat.id}>
+                  {first?.photo && <img src={thumbUrl(first.photo)} alt="" width="200" height="160" loading="lazy" decoding="async" />}
+                  <span>{cat.name}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrap grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_22.5rem] lg:gap-12 lg:py-14">
+    <div>
+      <!-- Search and filters -->
+      <div class="o-tools flex flex-wrap items-center gap-3" role="search">
+        <label for="o-q" class="sr-only">Zoek een gerecht</label>
+        <input id="o-q" type="search" class="menu-q" placeholder="Zoek een gerecht" autocomplete="off" spellcheck="false" />
+        <button type="button" class="chip" data-filter="vegetarian" aria-pressed="false"><TagIcon tag="vegetarian" class="h-4 w-4" /> Vegetarisch</button>
+        <button type="button" class="chip" data-filter="halal" aria-pressed="false"><TagIcon tag="halal" class="h-4 w-4" /> Halal</button>
+        <button type="button" class="chip-clear" data-clear hidden>Wis zoekopdracht</button>
+        <p class="w-full text-sm text-muted-paper sm:ml-2 sm:w-auto" data-count aria-live="polite" data-all={total}></p>
+      </div>
+      <p class="mt-4 max-w-2xl text-sm text-muted-paper">
+        De iconen komen van de bestelpagina bij Foodtown en kunnen onvolledig zijn. Heeft u een allergie? Vraag het ons even.
+      </p>
+
+      {categories.map((cat) => (
+        <section id={`cat-${cat.id}`} class="o-cat mt-14 first-of-type:mt-10" data-cat-section={cat.id} aria-labelledby={`h-${cat.id}`}>
+          <h2 id={`h-${cat.id}`} class="o-cat-title text-5xl md:text-6xl"><span>{cat.name}</span></h2>
+          <span class="rule mt-4" aria-hidden="true"></span>
+          <div class="mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2">
+            {cat.items.map((it) => {
+              const fb = CARD_FALLBACK[it.name];
+              const search = `${it.name} ${it.desc} ${it.unit}`.toLowerCase();
+              return (
+                <article
+                  class="pcard"
+                  data-product
+                  data-id={it.id}
+                  data-name={it.name}
+                  data-unit={it.unit}
+                  data-price={it.price_eur}
+                  data-desc={it.desc}
+                  data-note={it.note}
+                  data-photo={it.photo ? photoUrl(it.photo) : fb ? `/images/dish/${fb}.webp` : ''}
+                  data-thumb={it.photo ? thumbUrl(it.photo) : fb ? `/images/dish/${fb}.webp` : ''}
+                  data-search={search}
+                  data-tags={it.tags.join(',')}
+                  data-qty="0"
+                >
+                  <button type="button" class="pcard-media" data-open aria-label={`Bekijk ${it.name}`}>
+                    {it.photo ? (
+                      <img src={photoUrl(it.photo)} width="640" height="480" alt={`${it.name}${it.desc ? `, ${it.desc.toLowerCase()}` : ''}`} loading="lazy" decoding="async" />
+                    ) : fb ? (
+                      <img class="is-card" src={`/images/dish/${fb}.webp`} width="168" height="132" alt={`${it.name}, ${it.desc.toLowerCase()}`} loading="lazy" decoding="async" />
+                    ) : (
+                      <span class="ptile wave" aria-hidden="true" data-n={it.unit ? it.unit.split(' ')[0] : ''} data-t={it.unit ? 'stuks' : 'foto volgt'}></span>
+                    )}
+                  </button>
+                  <div class="pcard-body">
+                    <h3 class="pcard-name">
+                      {it.name}
+                      {it.unit && <span class="pcard-unit">{it.unit}</span>}
+                    </h3>
+                    {it.desc && <p class="pcard-desc">{it.desc}</p>}
+                    {it.note && <p class="pcard-note">{it.note}</p>}
+                    {it.tags.length > 0 && (
+                      <p class="pcard-tags">
+                        {it.tags.map((t) => (<span title={TAG_LABEL[t]}><TagIcon tag={t} /></span>))}
+                      </p>
+                    )}
+                    <div class="pcard-foot">
+                      <span class="pcard-price">{eur(it.price_eur)}</span>
+                      <div class="o-step" role="group" aria-label={`Aantal ${it.name}`}>
+                        <button type="button" class="o-step-btn o-minus" data-minus aria-label={`Minder ${it.name}`}><span aria-hidden="true">−</span></button>
+                        <output class="o-qty" data-qtyout aria-live="polite">0</output>
+                        <button type="button" class="o-step-btn o-plus" data-plus aria-label={`Voeg ${it.name} toe`}><span aria-hidden="true">+</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      ))}
+      <p class="menu-empty py-10 text-lg text-muted-paper" data-empty hidden>Niets gevonden. Probeer een ander woord.</p>
+    </div>
+
+    <slot />
+  </div>
+</section>

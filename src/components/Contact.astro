@@ -1,0 +1,52 @@
+---
+import { biz, hours, reserveHref, orderHref, routeHref, mapEmbed } from '../lib/data';
+---
+<section id="contact" class="section pt-32 md:pt-44">
+  <div class="wrap grid gap-12 lg:grid-cols-2 lg:gap-16">
+    <div>
+      <h1 class="h2">Contact</h1>
+      <p class="lead mt-5">Reserveren kan telefonisch. Liever thuis eten? Bestel online.</p>
+
+      <p class="mt-8">
+        <a href={`tel:${biz.phone_tel}`} class="font-display text-5xl underline-offset-8 hover:text-gold hover:underline md:text-6xl">{biz.phone}</a>
+      </p>
+      <p class="mt-3"><a href={`mailto:${biz.email}`} class="text-muted underline underline-offset-4 hover:text-gold">{biz.email}</a></p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={reserveHref} class="btn btn-solid">Reserveer</a>
+        <a href={orderHref} class="btn btn-line">Bestel online</a>
+      </div>
+
+      <div class="mt-14 border-t border-line pt-8">
+        <h2 class="text-3xl">Openingstijden</h2>
+        <p class="mt-2 text-gold" data-open-status></p>
+        <dl class="mt-5 max-w-sm">
+          {hours.map((d, i) => (
+            <div data-day={i} class="flex justify-between gap-6 border-b border-line/40 py-2.5 data-[today]:text-gold">
+              <dt>{d.day}</dt>
+              <dd class="tabular-nums">{d.closed ? 'Gesloten' : `${d.open} – ${d.close}`}</dd>
+            </div>
+          ))}
+        </dl>
+        <p class="mt-4 text-sm text-muted">Op feestdagen gelden andere tarieven.</p>
+      </div>
+    </div>
+
+    <div class="flex flex-col">
+      <address class="not-italic">
+        <h2 class="text-3xl">Adres</h2>
+        <p class="mt-3 text-lg">{biz.address.street}<br />{biz.address.postalCode} {biz.address.city}</p>
+        <p class="mt-5"><a href={routeHref} class="btn btn-line" rel="noopener">Route plannen</a></p>
+      </address>
+      <div class="mt-8 min-h-[22rem] flex-1 overflow-hidden border border-line">
+        <iframe
+          title="Kaart: YuMe Sushi & Grill, Boreelplein 52 Deventer"
+          src={mapEmbed}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="h-full min-h-[22rem] w-full border-0 [filter:grayscale(1)_invert(.9)_contrast(1.05)_brightness(1.25)]"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,116 @@
+---
+import { biz, foodtownHref } from '../../lib/data';
+import { items, thumbUrl } from '../../lib/order';
+
+// Quick "forgot something?" items: the extras from the takeaway menu
+const extras = ['Stokjes', 'Sojasaus', 'Wasabi', 'Gember']
+  .map((n) => items.find((i) => i.name === n))
+  .filter(Boolean) as typeof items;
+const eur = (n: number) => '€ ' + n.toLocaleString('nl-NL', { minimumFractionDigits: 2 });
+---
+<aside id="cart" class="o-cart" aria-label="Uw bestelling" data-cart>
+  <div class="o-cart-inner">
+    <header class="flex items-center justify-between gap-4">
+      <h2 class="font-display text-4xl leading-none">Uw bestelling</h2>
+      <span class="o-badge" data-badge aria-label="Aantal artikelen">0</span>
+      <button type="button" class="o-cart-close" data-cart-close aria-label="Sluit bestelling"><span aria-hidden="true">×</span></button>
+    </header>
+
+    <p class="o-cart-mode" data-cart-mode>Afhalen</p>
+
+    <p class="o-cart-empty" data-cart-empty>
+      <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+        <path d="M10 28h44l-4 22a6 6 0 0 1-6 5H20a6 6 0 0 1-6-5z" /><path d="M24 28c0-8 3-14 8-14s8 6 8 14" /><path d="M6 14l28 12M58 14L30 26" opacity=".5" />
+      </svg>
+      <span>Nog niets gekozen. Tik op + bij een gerecht.</span>
+    </p>
+
+    <ul class="o-lines" data-lines></ul>
+
+    <div class="o-suggest" data-suggest hidden>
+      <p class="text-sm text-muted-paper">Vergeten? Dit hoort er vaak bij:</p>
+      <ul class="mt-2 flex flex-wrap gap-2">
+        {extras.map((e) => (
+          <li>
+            <button type="button" class="o-chip-add" data-quick={e.id}>
+              <img src={thumbUrl(e.photo!)} alt="" width="200" height="160" loading="lazy" decoding="async" />
+              <span>{e.name}</span>
+              <span class="text-gold-deep">+ {eur(e.price_eur)}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <dl class="o-totals">
+      <div><dt>Subtotaal</dt><dd data-subtotal>€ 0,00</dd></div>
+      <div data-fee-row hidden><dt>Bezorgkosten</dt><dd data-fee>€ 0,00</dd></div>
+      <div class="o-total"><dt>Totaal</dt><dd data-total>€ 0,00</dd></div>
+    </dl>
+
+    <div class="o-min" data-min hidden>
+      <p class="text-sm" data-min-text></p>
+      <div class="o-min-track" aria-hidden="true"><span data-min-bar></span></div>
+    </div>
+
+    <button type="button" class="btn btn-solid w-full" data-checkout disabled>Bestelling afronden</button>
+    <p class="mt-3 text-center text-sm text-muted-paper" data-checkout-hint>Kies eerst een gerecht.</p>
+  </div>
+</aside>
+
+<!-- Mobile bar -->
+<div class="o-bar" data-bar data-hidden="true">
+  <button type="button" class="o-bar-btn" data-bar-open aria-controls="cart">
+    <span class="o-bar-bag" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h14l-1.200 10a2 2 0 0 1-2 1.800H8.200a2 2 0 0 1-2-1.800z" /><path d="M9 9V7a3 3 0 0 1 6 0v2" /></svg>
+      <span class="o-badge" data-bar-badge>0</span>
+    </span>
+    <span class="font-medium">Bekijk bestelling</span>
+    <span class="ml-auto font-medium tabular-nums" data-bar-total>€ 0,00</span>
+  </button>
+</div>
+<div class="o-backdrop" data-backdrop></div>
+
+<!-- Product -->
+<dialog class="o-dialog" data-pdialog aria-labelledby="pd-name">
+  <div class="o-dialog-card">
+    <button type="button" class="o-dialog-close" data-dialog-close aria-label="Sluiten"><span aria-hidden="true">×</span></button>
+    <div class="o-dialog-media" data-pd-media></div>
+    <div class="o-dialog-body">
+      <h2 id="pd-name" class="font-display text-4xl leading-tight md:text-5xl" data-pd-name></h2>
+      <p class="mt-1 text-muted-paper" data-pd-unit></p>
+      <p class="mt-4 text-lg" data-pd-desc></p>
+      <p class="mt-2 text-sm text-muted-paper" data-pd-note></p>
+      <ul class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-paper" data-pd-tags></ul>
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-paper-ink/15 pt-5">
+        <span class="font-display text-4xl" data-pd-price></span>
+        <div class="o-step is-open" role="group" aria-label="Aantal">
+          <button type="button" class="o-step-btn o-minus" data-pd-minus aria-label="Minder"><span aria-hidden="true">−</span></button>
+          <output class="o-qty" data-pd-qty aria-live="polite">0</output>
+          <button type="button" class="o-step-btn o-plus" data-pd-plus aria-label="Meer"><span aria-hidden="true">+</span></button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-solid mt-5 w-full" data-pd-done>Toevoegen</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- Receipt -->
+<dialog class="o-dialog o-receipt-dialog" data-receipt aria-labelledby="rc-title">
+  <div class="o-receipt">
+    <button type="button" class="o-dialog-close" data-dialog-close aria-label="Sluiten"><span aria-hidden="true">×</span></button>
+    <p class="o-receipt-logo font-display">YuMe</p>
+    <h2 id="rc-title" class="font-display text-3xl leading-tight">Uw bestelling</h2>
+    <p class="mt-1 text-sm text-muted-paper" data-rc-mode></p>
+    <ul class="o-receipt-lines" data-rc-lines></ul>
+    <dl class="o-receipt-totals" data-rc-totals></dl>
+    <div class="o-receipt-note">
+      <p><strong>Conceptontwerp.</strong> Hier wordt niets besteld en niets betaald. In de echte versie koppelen we dit aan Foodtown, waar het afrekenen gebeurt (daar is een e-mailadres en telefoonnummer nodig).</p>
+    </div>
+    <div class="mt-5 grid gap-3">
+      <a class="btn btn-solid" href={foodtownHref} data-rc-foodtown target="_blank" rel="noopener">Verder bij Foodtown</a>
+      <button type="button" class="btn btn-line" data-rc-copy>Kopieer mijn bestelling</button>
+      <a class="btn btn-line" href={`tel:${biz.phone_tel}`}>Bel {biz.phone}</a>
+    </div>
+  </div>
+</dialog>

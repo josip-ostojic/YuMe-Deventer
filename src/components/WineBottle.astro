@@ -1,0 +1,46 @@
+---
+// A small line-drawn bottle, coloured by wine type. Not a photo of the actual bottle:
+// the real bottle photos only exist for the old wine card (see CLAUDE.md).
+interface Props { kind: 'white' | 'rose' | 'red' | 'sparkling' | 'dessert'; class?: string }
+const { kind, class: cls = '' } = Astro.props;
+
+const wine = { white: '#d8c886', rose: '#e8a299', red: '#7a2030', sparkling: '#e7d9a2', dessert: '#c07a2c' }[kind];
+const label = { white: 'Witte wijn', rose: 'Rosé', red: 'Rode wijn', sparkling: 'Mousserende wijn', dessert: 'Dessertwijn' }[kind];
+
+// body shapes (viewBox 0 0 40 96)
+const bodies = {
+  // bordeaux (red, white, dessert): straight shoulders
+  bordeaux: 'M17 26 C17 34 8.5 38 8.5 50 V88 a4 4 0 0 0 4 4 H27.5 a4 4 0 0 0 4-4 V50 C31.5 38 23 34 23 26 Z',
+  // slimmer, sloping shoulders (rosé)
+  slim: 'M17.5 24 C17.5 36 10 42 10 54 V88 a4 4 0 0 0 4 4 H26 a4 4 0 0 0 4-4 V54 C30 42 22.5 36 22.5 24 Z',
+  // wide, heavy glass (sparkling)
+  sparkling: 'M17 22 C17 34 5.5 40 5.5 54 V88 a4 4 0 0 0 4 4 H30.5 a4 4 0 0 0 4-4 V54 C34.5 40 23 34 23 22 Z',
+};
+const body = kind === 'sparkling' ? bodies.sparkling : kind === 'rose' ? bodies.slim : bodies.bordeaux;
+const foilH = kind === 'sparkling' ? 22 : 9;
+const neckTop = 2;
+---
+<svg
+  viewBox="0 0 40 96"
+  width="30"
+  height="72"
+  role="img"
+  aria-label={label}
+  class={cls}
+  fill="none"
+  stroke="#cfa862"
+  stroke-width="1.1"
+  stroke-linejoin="round"
+>
+  <title>{label}</title>
+  <!-- neck -->
+  <rect x="17" y={neckTop} width="6" height="26" rx="1.2" fill="#1a1713" />
+  <!-- liquid / glass -->
+  <path d={body} fill={wine} fill-opacity="0.92" />
+  <path d="M11.5 56 V84" stroke="#fff" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round" />
+  <!-- foil -->
+  <rect x="16.4" y={neckTop} width="7.2" height={foilH} rx="1.2" fill="#cfa862" fill-opacity={kind === 'sparkling' ? 0.9 : 0.75} stroke="none" />
+  <!-- label -->
+  <rect x={kind === 'sparkling' ? 11 : 12} y="60" width={kind === 'sparkling' ? 18 : 16} height="20" rx="1" fill="#f2eee4" fill-opacity="0.9" stroke="none" />
+  <path d="M15 66 h10 M15 70 h10 M15 74 h6" stroke="#1a1713" stroke-opacity="0.45" stroke-width="1" />
+</svg>

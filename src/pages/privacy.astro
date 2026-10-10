@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CtaBar from '../components/CtaBar.astro';
+import { biz, foodtownHref } from '../lib/data';
+---
+<Base title="Privacy | YuMe Sushi & Grill Deventer" description="Wat deze website wel en niet over u bewaart." crumbs={[{ name: 'Privacy', href: '/privacy/' }]}>
+  <Header />
+  <main id="main" class="section pt-32 md:pt-44">
+    <div class="wrap">
+      <h1 class="h2">Privacy</h1>
+      <p class="lead mt-5">Kort en eerlijk: wat deze website doet met uw gegevens.</p>
+      <div class="legal mt-12 max-w-2xl space-y-8 text-lg text-muted">
+        <section>
+          <h2 class="text-3xl text-paper">Geen cookies, geen volgprogramma's</h2>
+          <p class="mt-3">Deze website gebruikt geen cookies, geen statistieken en geen advertentienetwerken. Er is geen formulier waarmee u gegevens kunt achterlaten.</p>
+        </section>
+        <section>
+          <h2 class="text-3xl text-paper">Wat uw browser zelf onthoudt</h2>
+          <p class="mt-3">Op de bestelpagina bewaart uw eigen browser uw winkelmandje, de keuze tussen afhalen en bezorgen en uw postcode, zodat ze niet kwijtraken als u de pagina vernieuwt. Dit blijft op uw eigen apparaat en wordt niet naar ons verstuurd.</p>
+        </section>
+        <section>
+          <h2 class="text-3xl text-paper">Kaart</h2>
+          <p class="mt-3">De kaart op de contactpagina komt van Google Maps. Zodra de kaart laadt, krijgt Google uw IP-adres te zien, zoals bij elke ingesloten kaart.</p>
+        </section>
+        <section>
+          <h2 class="text-3xl text-paper">Echt bestellen</h2>
+          <p class="mt-3">Het afrekenen gaat via <a class="text-gold underline underline-offset-4" href={foodtownHref} rel="noopener">Foodtown</a>. Daar geldt het privacybeleid van Foodtown.</p>
+        </section>
+        <section>
+          <h2 class="text-3xl text-paper">Vragen</h2>
+          <p class="mt-3">Mail naar <a class="text-gold underline underline-offset-4" href={`mailto:${biz.email}`}>{biz.email}</a> of bel {biz.phone}.</p>
+          <p class="mt-3 text-sm">Verwerkingsverantwoordelijke (bedrijfsnaam en KvK-nummer): <span class="border border-dashed border-gold/60 px-1.5 py-0.5 text-gold">[TODO]</span></p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+  <CtaBar />
+</Base>

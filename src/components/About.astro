@@ -1,0 +1,65 @@
+---
+import { c } from '../lib/data';
+import { items, thumbUrl } from '../lib/order';
+import Band from './Band.astro';
+
+const a = c.about;
+const key = (n: string) => items.find((i) => i.name === n)?.photo ?? '';
+// the kitchen in four words, each with a real dish
+const kitchen = [
+  { t: 'Sushi', n: 'Sake Nigiri' },
+  { t: 'Grill', n: 'Yaki Tori' },
+  { t: 'Wok', n: 'Yaki Udon' },
+  { t: 'Frituur', n: 'Ebi Fry' },
+].map((k) => ({ ...k, src: thumbUrl(key(k.n)) }));
+---
+<section id="over-ons" class="section pt-32 md:pt-44">
+  <div class="wrap grid items-center gap-16 md:grid-cols-12 md:gap-16">
+    <div class="photo relative pb-10 md:col-span-5">
+      <img
+        src="/images/napkin.webp"
+        width="500"
+        height="333"
+        alt="Servet met het YuMe-logo en zwarte eetstokjes naast een groen schaaltje"
+        fetchpriority="high"
+        decoding="async"
+        class="w-full"
+      />
+      <img
+        src="/images/sign.webp"
+        width="250"
+        height="140"
+        alt="Verlicht YuMe Sushi & Grill-bord op de bar"
+        loading="lazy"
+        decoding="async"
+        class="absolute bottom-0 right-0 w-[44%] border border-gold/70 md:-right-8"
+      />
+    </div>
+    <div class="md:col-span-7">
+      <h1 class="h2">YuMe betekent droom</h1>
+      <span class="rule mt-8" aria-hidden="true"></span>
+      <div class="mt-8 max-w-xl space-y-5 text-lg text-muted">
+        <p>YuMe is het Japanse woord voor droom. Bij ons kiest u onbeperkt uit meer dan 100 Japanse gerechten.</p>
+        <p>{a.interior}</p>
+        <p>{a.kitchen}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="on-paper mt-20 bg-paper py-14 text-paper-ink md:mt-28 md:py-20">
+    <div class="wrap">
+      <h2 class="font-display text-4xl leading-none md:text-5xl">Uit onze keuken</h2>
+      <ul class="taste taste--4 mt-8">
+        {kitchen.map((k, i) => (
+          <li class="reveal" style={`--i:${i}`}>
+            <img src={k.src} alt="" width="200" height="160" loading="lazy" decoding="async" />
+            <span>{k.t}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-10"><a href="/menu/" class="btn btn-solid">Bekijk het menu</a></p>
+    </div>
+  </div>
+
+  <div class="mt-0"><Band /></div>
+</section>

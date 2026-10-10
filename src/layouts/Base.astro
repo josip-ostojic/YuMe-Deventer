@@ -1,0 +1,89 @@
+---
+import '../styles/global.css';
+import { biz, hours } from '../lib/data';
+
+interface Props { title: string; description: string; crumbs?: { name: string; href: string }[]; noindex?: boolean }
+const { title, description, crumbs = [], noindex: pageNoindex = false } = Astro.props;
+
+const base = Astro.site ?? Astro.url;
+const canonical = new URL(Astro.url.pathname, base).href;
+const ogImage = new URL('/images/og-image.png', base).href;
+const noindex = pageNoindex || process.env.NOINDEX === 'true';
+const abs = (p: string) => new URL(p, base).href;
+
+const dayEn = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Restaurant',
+  name: 'YuMe Sushi & Grill Deventer',
+  url: abs('/'),
+  image: ogImage,
+  telephone: biz.phone_tel,
+  email: biz.email,
+  servesCuisine: ['Japans', 'Sushi', 'Grill'],
+  hasMenu: abs('/menu/'),
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: biz.address.street,
+    postalCode: biz.address.postalCode,
+    addressLocality: biz.address.city,
+    addressCountry: biz.address.country,
+  },
+  openingHoursSpecification: hours
+    .map((d, i) => ({ d, i }))
+    .filter(({ d }) => !d.closed)
+    .map(({ d, i }) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: dayEn[i],
+      opens: d.open,
+      closes: d.close,
+    })),
+};
+const breadcrumbs = crumbs.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [{ name: 'Home', href: '/' }, ...crumbs].map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: abs(c.href) })),
+    }
+  : null;
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0e0e0e" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:site_name" content="YuMe Sushi & Grill Deventer" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="YuMe Sushi & Grill Deventer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>
+      var h = document.documentElement;
+      h.classList.add('js');
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) h.classList.add('motion');
+      // the opening animation plays once per visit, not on every page
+      try { if (sessionStorage.getItem('yume-seen')) h.classList.add('seen'); else sessionStorage.setItem('yume-seen', '1'); } catch (e) {}
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+    {breadcrumbs && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />}
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:bg-gold focus:px-4 focus:py-2 focus:text-ink">Naar de inhoud</a>
+    <slot />
+    <script src="../scripts/main.ts"></script>
+  </body>
+</html>

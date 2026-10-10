@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import More from '../components/More.astro';
+import Hero from '../components/order/Hero.astro';
+import Shop from '../components/order/Shop.astro';
+import Cart from '../components/order/Cart.astro';
+import '../styles/order.css';
+---
+<Base
+  title="Bestel online | YuMe Sushi & Grill Deventer"
+  description="Bestel sushi, grill en meer bij YuMe in Deventer: afhalen of laten bezorgen. Kies uit de afhaalkaart met foto's, Boreelplein 52."
+  crumbs={[{ name: 'Bestel online', href: '/bestellen/' }]}
+>
+  <Header />
+  <main id="main">
+    <Hero />
+    <Shop>
+      <Cart />
+    </Shop>
+  </main>
+  <More current="bestellen" />
+  <Footer />
+  <script>
+    import '../scripts/order.ts';
+  </script>
+</Base>

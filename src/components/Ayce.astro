@@ -1,0 +1,111 @@
+---
+import { c, eur } from '../lib/data';
+import { items, thumbUrl } from '../lib/order';
+
+const a = c.all_you_can_eat;
+const [weekday, weekend] = a.dinner;
+const kidsPerYear = 2.5;
+
+// A taste of what is on the card, with the sharp studio photos
+const taste = [
+  'Sake Nigiri', 'California Maki', 'Spicy Tuna Maki', 'Ebi Fry', 'Yaki Tori', 'Gyoza', 'Tori Teriyaki', 'Dragon Cake',
+  'Edamame', 'Kani Sarada', 'Beef Teriyaki', 'Wakame Temaki',
+].map((n) => items.find((i) => i.name === n)!).filter((i) => i?.photo);
+---
+<section id="all-you-can-eat" class="section pt-32 md:pt-44">
+  <div class="wrap">
+    <h1 class="h2">All you can eat</h1>
+    <p class="lead mt-5">
+      Onbeperkt kiezen uit meer dan 100 Japanse gerechten: sushi, grill, teppanyaki, wok en frituur.
+    </p>
+
+    <span class="rule mt-12 md:mt-16" aria-hidden="true"></span>
+
+    <div class="grid md:grid-cols-2">
+      <div class="py-10 md:py-14 md:pr-10">
+        <h2 class="text-xl text-muted" style="font-family:var(--font-sans);font-weight:400;letter-spacing:0">Dinsdag t/m donderdag</h2>
+        <p class="mt-3 font-display text-[clamp(4.5rem,13vw,8rem)] leading-none">{eur(weekday.adult_price_eur)}</p>
+        <p class="mt-2 text-muted">per persoon, diner</p>
+      </div>
+      <div class="border-t border-line py-10 md:border-l md:border-t-0 md:py-14 md:pl-10">
+        <h2 class="text-xl text-muted" style="font-family:var(--font-sans);font-weight:400;letter-spacing:0">Vrijdag t/m zondag</h2>
+        <p class="mt-3 font-display text-[clamp(4.5rem,13vw,8rem)] leading-none">{eur(weekend.adult_price_eur)}</p>
+        <p class="mt-2 text-muted">per persoon, diner</p>
+      </div>
+    </div>
+
+    <span class="rule" aria-hidden="true"></span>
+
+    <p class="mt-8 max-w-2xl text-lg">
+      Kinderen van 3 t/m 11 jaar betalen {eur(kidsPerYear)} per levensjaar. Een kind van 6 betaalt dus {eur(kidsPerYear * 6)}.
+    </p>
+  </div>
+
+  <!-- Calculator -->
+  <div class="wrap mt-16 md:mt-24">
+    <div class="calc" data-calc data-weekday={weekday.adult_price_eur} data-weekend={weekend.adult_price_eur} data-kid={kidsPerYear}>
+      <div class="calc-form">
+        <h2 class="font-display text-4xl leading-none md:text-5xl">Wat kost het voor ons?</h2>
+        <p class="mt-3 text-muted">Vul in met hoeveel u komt.</p>
+
+        <fieldset class="mt-7">
+          <legend class="calc-label">Dag</legend>
+          <div class="calc-days" role="radiogroup" aria-label="Dag">
+            <span class="calc-pill" aria-hidden="true"></span>
+            <button type="button" role="radio" aria-checked="true" data-day="weekday">Di t/m do</button>
+            <button type="button" role="radio" aria-checked="false" data-day="weekend">Vr t/m zo</button>
+          </div>
+        </fieldset>
+
+        <div class="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5">
+          <label class="calc-label" id="calc-adults-l">Volwassenen</label>
+          <div class="calc-step" role="group" aria-labelledby="calc-adults-l">
+            <button type="button" data-adults="-1" aria-label="Minder volwassenen"><span aria-hidden="true">−</span></button>
+            <output data-adults-out aria-live="polite">0</output>
+            <button type="button" data-adults="1" aria-label="Meer volwassenen"><span aria-hidden="true">+</span></button>
+          </div>
+        </div>
+
+        <div class="mt-5 border-t border-line pt-5">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <span class="calc-label" id="calc-kids-l">Kinderen (3 t/m 11 jaar)</span>
+            <button type="button" class="calc-add" data-kid-add>Kind toevoegen</button>
+          </div>
+          <ul class="calc-kids" data-kids aria-labelledby="calc-kids-l"></ul>
+        </div>
+      </div>
+
+      <div class="calc-result" aria-live="polite">
+        <p class="calc-label">Totaal diner</p>
+        <p class="calc-total" data-total>{eur(0)}</p>
+        <ul class="calc-lines" data-lines><li><span>Nog niemand toegevoegd</span><span></span></li></ul>
+        <p class="mt-auto pt-6 text-sm text-muted">Exclusief drinken. Op feestdagen gelden andere tarieven.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- What is on the card -->
+  <div class="on-paper mt-20 bg-paper py-16 text-paper-ink md:mt-28 md:py-24">
+    <div class="wrap">
+      <h2 class="font-display text-4xl leading-none md:text-5xl">Dit staat er op de kaart</h2>
+      <p class="mt-4 max-w-xl text-muted-paper">Een kleine greep uit meer dan 100 gerechten. Alles staat met foto in het menu.</p>
+      <ul class="taste mt-10">
+        {taste.map((t, i) => (
+          <li class="reveal" style={`--i:${i}`}>
+            <img src={thumbUrl(t.photo!)} alt="" width="200" height="160" loading="lazy" decoding="async" />
+            <span>{t.name}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-10"><a href="/menu/" class="btn btn-solid">Bekijk het hele menu</a></p>
+    </div>
+  </div>
+
+  <div class="wrap mt-10">
+    <p class="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted">
+      <span>Prijzen zijn exclusief drinken.</span>
+      <span>Op feestdagen gelden andere tarieven.</span>
+      <span>Maandag gesloten.</span>
+    </p>
+  </div>
+</section>
